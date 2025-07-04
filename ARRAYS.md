@@ -21,4 +21,31 @@ int main() {
     return 0;
 }
 
+
+###
+2.C program to find sum of all elements in an array
+
+#include<stdio.h>
+int main()
+{
+        int n;
+        printf("Enter the size of array:\n");
+        scanf("%d",&n);
+        int arr[n];
+        printf("Enter elements of an array:\n");
+        for(int i=0;i<n;i++)
+        {
+                scanf("%d",&arr[i]);
+        }
+        int *ptr;
+        ptr=arr;
+        int sum=0;
+        for(int i=0;i<n;i++)
+        {
+                sum=sum+*(ptr+i);
+        }
+        printf("The sum of elements in the array is:%d\n",sum);
+        return 0;
+}
+
 ```
