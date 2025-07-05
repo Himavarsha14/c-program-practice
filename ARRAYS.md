@@ -110,7 +110,7 @@ int main()
 }
 
 ###
-Program to print all unique elements
+5.Program to print all unique elements
 
 #include<stdio.h>
 int main()
