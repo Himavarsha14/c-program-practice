@@ -74,5 +74,7 @@ int main()
         }
         return 0;
 }
+###
+4.Program to count total number of duplicate elements in an array
 
 ```
