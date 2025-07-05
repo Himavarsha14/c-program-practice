@@ -77,4 +77,36 @@ int main()
 ###
 4.Program to count total number of duplicate elements in an array
 
+#include<stdio.h>
+int main()
+{
+        int n;
+        printf("Enter the size of the array:\n");
+        scanf("%d",&n);
+        int arr[n];
+        printf("Enter the elements of the array:\n");
+        for(int i=0;i<n;i++)
+        {
+                scanf("%d",&arr[i]);
+        }
+        int count=0;
+        for(int i=0;i<n;i++)
+        {
+                for(int j=i+1;j<n;j++)
+                {
+                        if(arr[i]==arr[j])
+                        {
+                                count++;
+                                break;
+                        }
+                }
+
+        }
+        if(count>1)
+        {
+                printf("The total number of duplicates in the array are:%d\n",count);
+        }
+        return 0;
+}
+
 ```
