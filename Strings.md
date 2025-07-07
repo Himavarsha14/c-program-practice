@@ -23,3 +23,24 @@ int main()
         return 0;
 }
 
+2.Program to seperate individual characters from a string
+
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[100];
+        printf("Enter a string:\n");
+        fgets(str,100,stdin);
+        str[strcspn(str,"\n")]='\0';
+        int count=0;
+        printf("Individual elements are:\n");
+        for(int i=0;str[i]!='\0';i++)
+        {
+                printf("%c ",str[i]);
+        }
+        return 0;
+}
+
+```
+
