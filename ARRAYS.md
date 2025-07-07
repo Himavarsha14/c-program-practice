@@ -1,8 +1,6 @@
-```c
-
 ###
 1.C Program to reverse an array using temporary array
-
+```c
 #include <stdio.h>
 #include <stdlib.h>
 void reverseArray(int arr[], int n) {
@@ -20,6 +18,7 @@ int main() {
         printf("%d ", arr[i]);
     return 0;
 }
+,,,
 
 
 ###
