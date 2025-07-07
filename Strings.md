@@ -1,8 +1,6 @@
-###
+
+## 1.Program to find the lenghth of the string without using library functions
 ```c
-
-1.Program to find the lenghth of the string without using library functions
-
 
 #include<stdio.h>
 #include<string.h>
@@ -22,9 +20,9 @@ int main()
         printf("\n");
         return 0;
 }
-
-2.Program to seperate individual characters from a string
-
+```
+## 2.Program to seperate individual characters from a string
+```c
 #include<stdio.h>
 #include<string.h>
 int main()
@@ -41,9 +39,9 @@ int main()
         }
         return 0;
 }
-
-3.Program to print individual characters of a string in reverse order
-
+```
+## 3.Program to print individual characters of a string in reverse order
+```c
 #include<stdio.h>
 #include<string.h>
 int main()
@@ -59,9 +57,9 @@ int main()
         }
         return 0;
 }
-
-4.Program to count total number of words in a string
-
+```
+## 4.Program to count total number of words in a string
+```c
 #include<stdio.h>
 #include<string.h>
 int main()
@@ -82,9 +80,9 @@ int main()
         printf("%d\n",count);
         return 0;
 }
-
-5.Program to compare two strings
-
+```
+## 5.Program to compare two strings
+```c
 #include<stdio.h>
 #include<string.h>
 int main()
@@ -105,9 +103,5 @@ int main()
         printf("%d\n",count);
         return 0;
 }
-
-
-
-
 ```
 
