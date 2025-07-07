@@ -42,5 +42,24 @@ int main()
         return 0;
 }
 
+3.Program to print individual characters of a string in reverse order
+
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[100];
+        printf("Enter the string:\n");
+        fgets(str,100,stdin);
+        str[strcspn(str,"\n")]='\0';
+        int length=strlen(str);
+        for(int i=length-1;i>=0;i--)
+        {
+                printf("%c ",str[i]);
+        }
+        return 0;
+}
+
+
 ```
 
