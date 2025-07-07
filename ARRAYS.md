@@ -1,5 +1,4 @@
-##
-1.C Program to reverse an array using temporary array
+## 1.C Program to reverse an array using temporary array
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -18,11 +17,9 @@ int main() {
         printf("%d ", arr[i]);
     return 0;
 }
-,,,
+```
 
-
-##
-2.C program to find sum of all elements in an array
+## 2.C program to find sum of all elements in an array
 ```c
 #include<stdio.h>
 int main()
@@ -49,8 +46,7 @@ int main()
 ```
 
 
-##
-3.C Program to copy the elements of one array to another array
+## 3.C Program to copy the elements of one array to another array
 ```c
 #include<stdio.h>
 int main()
@@ -75,8 +71,7 @@ int main()
         return 0;
 }
 ```
-##
-4.Program to count total number of duplicate elements in an array
+## 4.Program to count total number of duplicate elements in an array
 ```c
 #include<stdio.h>
 int main()
@@ -111,8 +106,7 @@ int main()
 }
 ```
 
-###
-5.Program to print all unique elements
+## 5.Program to print all unique elements
 ```c
 #include<stdio.h>
 int main()
