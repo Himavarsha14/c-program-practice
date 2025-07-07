@@ -60,6 +60,30 @@ int main()
         return 0;
 }
 
+4.Program to count total number of words in a string
+
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[100];
+        printf("Enter a string:\n");
+        fgets(str,100,stdin);
+        str[strcspn(str,"\n")]='\0';
+        int count=1;
+        printf("The total number of words are:");
+        for(int i=0;str[i]!='\0';i++)
+        {
+                if(str[i]==' '||str[i]=='\t'||str[i]=='\n')
+                {
+                        count++;
+                }
+        }
+        printf("%d\n",count);
+        return 0;
+}
+
+
 
 ```
 
