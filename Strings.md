@@ -1,4 +1,5 @@
 ###
+```c
 
 1.Program to find the lenghth of the string without using library functions
 
