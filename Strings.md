@@ -1,5 +1,7 @@
 ###
-1.Program to find the lenghth of the string without using library functios
+1.Program to find the lenghth of the string without using library functions
+
+
 #include<stdio.h>
 #include<string.h>
 int main()
