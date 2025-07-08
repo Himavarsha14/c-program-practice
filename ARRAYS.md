@@ -172,3 +172,40 @@ int main()
         return 0;
 }
 ```
+## 7.Program to merge two arrays into a third array
+```c
+#include<stdio.h>
+int main()
+{
+        int n1,n2;
+        printf("Enter the size of array1 and array 2:\n");
+        scanf("%d %d",&n1,&n2);
+        int arr1[n1],arr2[n2];
+        printf("Enter the elements of first array:\n");
+        for(int i=0;i<n1;i++)
+        {
+                scanf("%d",&arr1[i]);
+        }
+        printf("Enter the elements of second array:\n");
+        for(int i=0;i<n2;i++)
+        {
+                scanf("%d",&arr2[i]);
+        }
+        int mergedarr[n1+n2];
+        for(int i=0;i<n1;i++)
+        {
+                mergedarr[i]=arr1[i];
+        }
+        for(int i=0;i<n2;i++)
+        {
+                mergedarr[n1+i]=arr2[i];
+        }
+        printf("Merged array\n");
+        for(int i=0;i<n1+n2;i++)
+        {
+                printf("%d ",mergedarr[i]);
+        }
+        return 0;
+}
+```
+
