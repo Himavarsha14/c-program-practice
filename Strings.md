@@ -104,7 +104,7 @@ int main()
         return 0;
 }
 ```
-## Program to check whether a string is palindrome or not
+## 6.Program to check whether a string is palindrome or not
 ```c
 #include<stdio.h>
 #include<string.h>
