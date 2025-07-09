@@ -190,3 +190,78 @@ int main()
         display();
         return 0;
 }
+```
+## 7.Delete at Head/Beginning
+```c
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+        int data;
+        struct node *next;
+};
+struct node *phead=NULL;
+void insert_head(int d)
+{
+        struct node *pnew;
+        pnew=(struct node*)malloc(sizeof(struct node));
+        if(pnew==NULL)
+        {
+                printf("Malloc error\n");
+                return;
+        }
+        pnew->data=d;
+        pnew->next=NULL;
+        if(phead==NULL)
+        {
+                phead=pnew;
+        }
+        else
+        {
+                pnew->next=phead;
+                phead=pnew;
+        }
+}
+void delete_at_begining()
+{
+        if(phead==NULL)
+        {
+                printf("List is empty\n");
+                return;
+        }
+        struct node *temp;
+        temp=phead;
+        phead=phead->next;
+        free(temp);
+}
+void display()
+{
+        struct node *ptrav;
+        ptrav=phead;
+        while(ptrav!=NULL)
+        {
+                printf("%d ",ptrav->data);
+                ptrav=ptrav->next;
+        }
+        printf("\n");
+}
+int main()
+{
+        int nodes,data,i;
+        printf("Enter number of nodes:\n");
+        scanf("%d",&nodes);
+        for(i=0;i<nodes;i++)
+        {
+                printf("Enter data for node %d:\n",i+1);
+                scanf("%d",&data);
+                insert_head(data);
+        }
+        printf("The elements in the list are:\n");
+        display();
+        delete_at_begining();
+        printf("The elements after deleting node at begin:\n");
+        display();
+        return 0;
+}
+
+```
