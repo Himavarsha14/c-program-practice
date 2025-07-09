@@ -134,7 +134,7 @@ int main()
         display();
 }
 ```
-## Insert at Head/Beginning
+## 3.Insert at Head/Beginning
 ```c
 #include<stdio.h>
 #include<stdlib.h>
