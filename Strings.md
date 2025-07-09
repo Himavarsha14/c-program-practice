@@ -138,4 +138,46 @@ int main()
 }
 
 ```
+## 7.Program to count vowels, consonants, digits, and spaces in a given string
+```c
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+int main()
+{
+        char str[100];
+        int vowels=0,consonants=0,digits=0,spaces=0;
+        printf("Enter the string:\n");
+        fgets(str,100,stdin);
+        str[strcspn(str, "\n")]='\0';
+        for(int i=0;str[i]!='\0';i++)
+        {
+                char ch=tolower(str[i]);
+                if(isalpha(ch))
+                {
+                        if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u')
+                        {
+                                vowels++;
+                        }
+                        else
+                        {
+                                consonants++;
+                        }
+                }
+                else if(ch>='0' && ch<='9')
+                {
+                        digits++;
+                }
+                else if(ch==' ')
+                {
+                        spaces++;
+                }
+        }
+        printf("Vowels:%d\n",vowels);
+        printf("consonants:%d\n",consonants);
+        printf("digits:%d\n",digits);
+        printf("spaces:%d\n",spaces);
+        return 0;
+}
+```
 
