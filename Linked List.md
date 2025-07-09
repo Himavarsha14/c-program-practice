@@ -133,5 +133,60 @@ int main()
         delete_end();
         display();
 }
-
 ```
+## Insert at Head/Beginning
+```c
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+        int data;
+        struct node *next;
+};
+struct node *phead=NULL;
+void insert_head(int d)
+{
+        struct node *pnew;
+        pnew=(struct node*)malloc(sizeof(struct node));
+        if(pnew==NULL)
+        {
+                printf("Malloc error\n");
+                return;
+        }
+        pnew->data=d;
+        pnew->next=NULL;
+        if(phead==NULL)
+        {
+                phead=pnew;
+        }
+        else
+        {
+                pnew->next=phead;
+                phead=pnew;
+        }
+}
+void display()
+{
+        struct node *ptrav;
+        ptrav=phead;
+        while(ptrav!=NULL)
+        {
+                printf("%d ",ptrav->data);
+                ptrav=ptrav->next;
+        }
+}
+int main()
+{
+        int nodes,data,i;
+        printf("Enter number of nodes:\n");
+        scanf("%d",&nodes);
+        for(i=0;i<nodes;i++)
+        {
+                printf("Enter data for node %d:\n",i+1);
+                scanf("%d",&data);
+                insert_head(data);
+        }
+        printf("The elements in the list are:\n");
+        display();
+        return 0;
+}
