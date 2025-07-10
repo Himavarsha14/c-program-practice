@@ -202,4 +202,37 @@ int main()
         return 0;
 }
 ```
+## 9.Program to Count Frequency of each character in a string
+```c
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+#define SIZE 256
+int main()
+{
+        char str[100];
+        printf("Enter a sting:\n");
+        fgets(str,100,stdin);
+        str[strcspn(str,"\n")]='\0';
+        int freq[SIZE]={0};
+        char ch;
+        for(int i=0;str[i]!='\0';i++)
+        {
+                ch=tolower(str[i]);
+                if(str[i]!=' ')
+                {
+                        freq[ch]++;
+                }
+        }
+        for(int i=0;i<SIZE;i++)
+        {
+                if(freq[i]>0)
+                {
+                        printf("%c:%d\n",i,freq[i]);
+                }
+        }
+        return 0;
+}
+
+```
 
