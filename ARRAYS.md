@@ -246,3 +246,63 @@ int main()
         return 0;
 }
 ```
+## 9.Program to find Second largest element in an array
+```c
+#include<stdio.h>
+#include<limits.h>
+int main()
+{
+        int n,i;
+        printf("Enter the size of array:\n");
+        scanf("%d",&n);
+        int arr[n];
+        printf("Enter the elements of array:\n");
+        for(int i=0;i<n;i++)
+        {
+                scanf("%d",&arr[i]);
+        }
+        int largest=INT_MIN;
+        int sec_lar=INT_MIN;
+        for(i=0;i<n;i++)
+        {
+                if(arr[i]>largest)
+                {
+                        sec_lar=largest;
+                        largest=arr[i];
+                }
+                else if(arr[i]>sec_lar && arr[i]!=largest)
+                {
+                        sec_lar=arr[i];
+                }
+        }
+printf("The second largest element in the array is:%d",sec_lar);
+return 0;
+}
+```
+## 10.Program to find missing element in an array
+```c
+#include<stdio.h>
+int main()
+{
+        int n,i;
+        printf("Enter the size of the array:\n");
+        scanf("%d",&n);
+        int arr[n];
+        printf("Enter the elements of the array:\n");
+        for(i=0;i<n;i++)
+        {
+                scanf("%d",&arr[i]);
+        }
+        int expected_sum=n*(n+1)/2;
+        int actual_sum=0;
+        for(int i=0;i<n-1;i++)
+        {
+                actual_sum+=arr[i];
+        }
+        int missing_number=expected_sum-actual_sum;
+        printf("The missing element is:%d",missing_number);
+        return 0;
+}
+
+```
+
