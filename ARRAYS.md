@@ -305,4 +305,47 @@ int main()
 }
 
 ```
+## 11.Program to find Duplicate elements
+```c
+include<stdio.h>
+int main()
+{
+        int n;
+        printf("Enter the size of array:\n");
+        scanf("%d",&n);
+        int arr[n];
+        printf("Enter the elements of the array:\n");
+        for(int i=0;i<n;i++)
+        {
+                scanf("%d",&arr[i]);
+        }
+        printf("The duplicates:\n");
+        for(int i=0;i<n;i++)
+        {
+                int count=0;
+                for(int j=i+1;j<n;j++)
+                {
+                        if(arr[i]==arr[j])
+                        {
+                                count++;
+                                break;
+                        }
+                }
+        int visited=0;
+        for(int k=0;k<i;k++)
+        {
+                if(arr[k]==arr[i])
+                {
+                        visited=1;
+                        break;
+                }
+        }
+        if(count>0&&!visited)
+        {
+                printf("%d\n",arr[i]);
+        }
+}
+        return 0;
+}
+```
 
