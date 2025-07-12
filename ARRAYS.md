@@ -348,4 +348,37 @@ int main()
         return 0;
 }
 ```
-
+## 12.Program to rotate array Left by 1
+```c
+#include<stdio.h>
+int main()
+{
+        int n;
+        printf("Enter the size of the array:\n");
+        scanf("%d",&n);
+        int arr[n];
+        printf("Enter the elements of the array:\n");
+        for(int i=0;i<n;i++)
+        {
+                scanf("%d",&arr[i]);
+        }
+        printf("Enter original array:\n");
+        for(int i=0;i<n;i++)
+        {
+                printf("%d ",arr[i]);
+        }
+        printf("\n");
+        int temp=arr[0];
+        for(int i=0;i<n-1;i++)
+        {
+                arr[i]=arr[i+1];
+        }
+        arr[n-1]=temp;
+        printf("Rotated array:\n");
+        for(int i=0;i<n;i++)
+        {
+                printf("%d ",arr[i]);
+        }
+        return 0;
+}
+```
