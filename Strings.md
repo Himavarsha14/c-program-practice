@@ -235,4 +235,60 @@ int main()
 }
 
 ```
+## 10.Program to check strings are anagram or not
+```c
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+#define SIZE 256
+int main()
+{
+        char str1[100],str2[100];
+        printf("Enter first string:\n");
+        fgets(str1,100,stdin);
+        str1[strcspn(str1,"\n")]='\0';
+        printf("Enter second string:\n");
+        fgets(str2,100,stdin);
+        str2[strcspn(str2,"\n")]='\0';
+        char freq1[SIZE]={0};
+        char freq2[SIZE]={0};
+        int i;
+        char ch;
+        int flag=1;
+        for(i=0;str1[i]!='\0';i++)
+        {
+                ch=tolower(str1[i]);
+                if(isalnum(ch))
+                {
+                        freq1[ch]++;
+                }
+        }
+        for(i=0;str2[i]!='\0';i++)
+        {
+                ch=tolower(str2[i]);
+                if(isalnum(ch))
+                {
+                        freq2[ch]++;
+                }
+        }
+        for(i=0;i<SIZE;i++)
+        {
+                if(freq1[i]!=freq2[i])
+                {
+                        flag=0;
+                        break;
+                }
+        }
+        if(flag)
+        {
+                printf("Both the strings are anagrams\n");
+        }
+        else
+        {
+                printf("Both the strings are not  anagrams\n");
+        }
+        return 0;
+}
+```
+
 
