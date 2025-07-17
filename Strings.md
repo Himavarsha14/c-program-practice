@@ -292,7 +292,7 @@ int main()
 ```
 ## 11. Program to find the longest word in a sentence
 ```c
-#include <stdio.h>
+#include<stdio.h>
 #include<string.h>
 int main()
 {
