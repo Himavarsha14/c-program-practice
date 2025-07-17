@@ -265,7 +265,7 @@ int main()
 }
 
 ```
-## 4.Insertion before a node
+## 5.Insertion before a node
 ```c
 #include<stdio.h>
 #include<stdlib.h>
