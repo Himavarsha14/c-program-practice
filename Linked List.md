@@ -370,3 +370,89 @@ int main()
         return 0;
 }
 ```
+## 6.Insertion in the middle of the linked list
+```c
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+        int data;
+                struct node *next;
+        };
+        struct node *phead;
+        void insert_end(int data)
+        {
+                struct node *pnew;
+                pnew=(struct node*)malloc(sizeof(struct node));
+                if(pnew==NULL)
+                {
+                        printf("Malloc error\n");
+                        return;
+                }
+                pnew->data=data;
+                pnew->next=NULL;
+                if(phead==NULL)
+                {
+                        phead=pnew;
+                        return ;
+                }
+                struct node *ptrav=phead;
+                while(ptrav->next!=NULL)
+                {
+                        ptrav=ptrav->next;
+                }
+                ptrav->next=pnew;
+        }
+void insert_middle(int mdata)
+{
+        struct node *newnode;
+        newnode=(struct node*)malloc(sizeof(struct node));
+        if(newnode==NULL)
+        {
+                printf("Malloc error\n");
+                return;
+        }
+        newnode->data=mdata;
+        newnode->next=NULL;
+        struct node *fast,*slow;
+        fast=phead;
+        slow=phead;
+        struct node *ptr;
+        while(fast!=NULL && fast->next!=NULL)
+        {
+                ptr=slow;
+                slow=slow->next;
+                fast=fast->next->next;
+        }
+        newnode->next=ptr->next;
+        ptr->next=newnode;
+}
+void display()
+{
+        struct node *ptrav=phead;
+        while(ptrav!=NULL)
+        {
+                printf("%d->",ptrav->data);
+                ptrav=ptrav->next;
+        }
+}
+int main()
+{
+        int nodes,data,mdata,i;
+        printf("Enter number of nodes:\n");
+        scanf("%d",&nodes);
+        for(i=0;i<nodes;i++)
+        {
+                printf("Data for nodes %d:\n",i+1);
+                scanf("%d",&data);
+                insert_end(data);
+        }
+        display();
+        printf("\n");
+        printf("Enter data for middle node:\n");
+        scanf("%d",&mdata);
+        insert_middle(mdata);
+        display();
+        return 0;
+}
+```
