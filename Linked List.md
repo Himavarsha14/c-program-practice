@@ -456,3 +456,78 @@ int main()
         return 0;
 }
 ```
+## 7.Deleting middle node of a linked list
+```c
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+        int data;
+        struct node *next;
+};
+struct node *phead;
+void insert_end(int data)
+{
+        struct node *pnew=(struct node*)malloc(sizeof(struct node));
+        if(pnew==NULL)
+        {
+                printf("Malloc error\n");
+                return;
+        }
+        pnew->data=data;
+        pnew->next=NULL;
+        if(phead==NULL)
+        {
+                phead=pnew;
+                return;
+        }
+        struct node *ptrav=phead;
+        while(ptrav->next!=NULL)
+        {
+                ptrav=ptrav->next;
+        }
+        ptrav->next=pnew;
+}
+void delete_middle()
+{
+        struct node *slow,*fast,*p;
+        slow=phead;
+        fast=phead;
+        while(fast!=NULL && fast->next!=NULL)
+        {
+                p=slow;
+                slow=slow->next;
+                fast=fast->next->next;
+        }
+        p->next=slow->next;
+        free(slow);
+}
+void display()
+{
+        struct node *ptrav=phead;
+        while(ptrav!=NULL)
+        {
+                printf("%d->",ptrav->data);
+                ptrav=ptrav->next;
+        }
+}
+int main()
+{
+        int nodes,data,i;
+        printf("Enter number of nodes:\n");
+        scanf("%d",&nodes);
+        for(i=0;i<nodes;i++)
+        {
+                printf("Data for node %d:\n",i+1);
+                scanf("%d",&data);
+                insert_end(data);
+        }
+        display();
+        printf("\n");
+        printf("Deleting after middle node:\n");
+        delete_middle();
+        display();
+        printf("\n");
+        return 0;
+}
+```
