@@ -486,4 +486,40 @@ int main()
     return 0;
 }
 ```
+## 16. Program to find the maximum sum of any contiguous subarray of size k
+```c
+#include <stdio.h>
+int main() {
+    int n;
+    printf("Enter size of the array:\n");
+    scanf("%d", &n);
+    int arr[n];
+    printf("Enter the elements of array:\n");
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    int k;
+    printf("Enter window size k:\n");
+    scanf("%d", &k);
+
+    int window_sum = 0;
+    for (int i = 0; i < k; i++) {
+        window_sum += arr[i];
+    }
+
+    int max_sum = window_sum;
+
+    for (int i = k; i < n; i++) {
+        window_sum = window_sum - arr[i - k] + arr[i];
+        if (window_sum > max_sum) {
+            max_sum = window_sum;
+        }
+    }
+
+    printf("Maximum sum of subarray of size %d is: %d\n", k, max_sum);
+    return 0;
+}
+```
+
+
 
