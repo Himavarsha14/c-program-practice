@@ -410,3 +410,43 @@ int main()
     return 0;
 }
 ```
+## 14. C program to left rotate an array by k positions using the shifting method
+```c
+#include <stdio.h>
+
+int main()
+{
+    int n, k;
+    printf("Enter the size of the array:\n");
+    scanf("%d", &n);
+
+    int arr[n];
+    printf("Enter %d elements of the array:\n", n);
+    for(int i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Enter number of positions to rotate left (k):\n");
+    scanf("%d", &k);
+    int temp;
+    for(int i = 0; i < k; i++)
+    {
+        temp = arr[0];
+        for(int j = 0; j < n - 1; j++)
+        {
+            arr[j] = arr[j + 1];
+        }
+        arr[n - 1] = temp;
+    }
+
+    printf("Array after left rotating by %d positions:\n", k);
+    for(int i = 0; i < n; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
+```
+
