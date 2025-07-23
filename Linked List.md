@@ -602,3 +602,96 @@ int main()
 }
 
 ```
+## 9.Detection of loop in linked list
+```c
+include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+        int data;
+        struct node *next;
+};
+struct node *phead;
+void insert_end(int data)
+{
+        struct node *pnew=(struct node*)malloc(sizeof(struct node));
+        if(pnew==NULL)
+        {
+                printf("Malloc error\n");
+                return;
+        }
+        pnew->data=data;
+        pnew->next=NULL;
+        struct node *ptrav=phead;
+        if(phead==NULL)
+        {
+                phead=pnew;
+                return;
+        }
+        while(ptrav->next!=NULL)
+        {
+                ptrav=ptrav->next;
+        }
+        ptrav->next=pnew;
+}
+void create_loop()
+{
+        struct node *ptrav=phead;
+        struct node *pp=phead->next;
+        while(ptrav->next!=NULL)
+        {
+                ptrav=ptrav->next;
+        }
+        ptrav->next=pp;
+}
+int detect_loop()
+{
+        struct node *slow=phead;
+        struct node *fast=phead;
+        while(slow && fast && fast->next)
+        {
+                slow=slow->next;
+                fast=fast->next->next;
+                if(slow==fast)
+                {
+                        return 1;
+                }
+        }
+        return 0;
+}
+void display()
+{
+        struct node *ptrav=phead;
+        while(ptrav!=NULL)
+        {
+                printf("%d ",ptrav->data);
+                ptrav=ptrav->next;
+        }
+}
+int main()
+{
+        int n;
+        printf("Number of nodes:\n");
+        scanf("%d",&n);
+        int data;
+        for(int i=0;i<n;i++)
+        {
+                printf("Enter data for node %d:\n",i+1);
+                scanf("%d",&data);
+                insert_end(data);
+        }
+        printf("Linked list before loop creation:\n");
+        display();
+        create_loop();
+        if(detect_loop())
+        {
+                printf("\nLoop detected\n");
+        }
+        else
+        {
+                printf("Loop not detected\n");
+        }
+        //display();       //calling display again to check whether loop is create or not
+        return 0;
+}
+```
