@@ -520,6 +520,43 @@ int main() {
     return 0;
 }
 ```
+## 17.Count Subarrays with Sum ≤ K
+```c
+#include <stdio.h>
 
+int main() {
+    int n;
+    printf("Enter the size of the array:\n");
+    scanf("%d", &n);
+
+    int arr[n];
+    printf("Enter elements of the array:\n");
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    int k;
+    printf("Enter the maximum allowed subarray sum (k):\n");
+    scanf("%d", &k);
+
+    int count = 0;
+
+    // Loop through all subarrays
+    for (int i = 0; i < n; i++) {
+        int sum = 0;
+        for (int j = i; j < n; j++) {
+            sum += arr[j];
+            if (sum <= k) {
+                count++;
+            } else {
+                break; // No point in checking longer subarray if sum already > k
+            }
+        }
+    }
+
+    printf("Number of subarrays with sum less than or equal to %d is: %d\n", k, count);
+    return 0;
+}
+```
 
 
