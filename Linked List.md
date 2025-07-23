@@ -531,3 +531,74 @@ int main()
         return 0;
 }
 ```
+## 8.Creation of loop in linked list
+```c
+include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+        int data;
+        struct node *next;
+};
+struct node *phead;
+void insert_end(int data)
+{
+        struct node *pnew=(struct node*)malloc(sizeof(struct node));
+        if(pnew==NULL)
+        {
+                printf("Malloc error\n");
+                return;
+        }
+        pnew->data=data;
+        pnew->next=NULL;
+        struct node *ptrav=phead;
+        if(phead==NULL)
+        {
+                phead=pnew;
+                return;
+        }
+        while(ptrav->next!=NULL)
+        {
+                ptrav=ptrav->next;
+        }
+        ptrav->next=pnew;
+}
+void create_loop()
+{
+        struct node *ptrav=phead;
+        struct node *pp=phead->next;
+        while(ptrav->next!=NULL)
+        {
+                ptrav=ptrav->next;
+        }
+        ptrav->next=pp;
+}
+void display()
+{
+        struct node *ptrav=phead;
+        while(ptrav!=NULL)
+        {
+                printf("%d ",ptrav->data);
+                ptrav=ptrav->next;
+        }
+}
+int main()
+{
+        int n;
+        printf("Number of nodes:\n");
+        scanf("%d",&n);
+        int data;
+        for(int i=0;i<n;i++)
+        {
+                printf("Enter data for node %d:\n",i+1);
+                scanf("%d",&data);
+                insert_end(data);
+        }
+        printf("Linked list before loop creation:\n");
+        display();
+        create_loop();
+        //display();       //calling display again to check whether loop is create or not
+        return 0;
+}
+
+```
