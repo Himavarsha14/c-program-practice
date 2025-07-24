@@ -558,5 +558,44 @@ int main() {
     return 0;
 }
 ```
+## 18.Program to count sum of diagonal elements in 2D array
+```c
+#include <stdio.h>
+
+int main() {
+    int row, col;
+    printf("Enter number of rows and columns:\n");
+    scanf("%d %d", &row, &col);
+
+    int arr[row][col];
+    printf("Enter the elements of the matrix:\n");
+
+    // Input matrix
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            scanf("%d", &arr[i][j]);
+        }
+    }
+
+    // Display matrix
+    printf("Matrix:\n");
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Sum of main diagonal (i == j)
+    int sum = 0;
+    int limit = (row < col) ? row : col;
+    for (int i = 0; i < limit; i++) {
+        sum += arr[i][i];
+    }
+
+    printf("Sum of diagonal elements: %d\n", sum);
+    return 0;
+}
+```
 
 
