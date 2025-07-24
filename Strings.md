@@ -81,30 +81,7 @@ int main()
         return 0;
 }
 ```
-## 5.Program to compare two strings
-```c
-#include<stdio.h>
-#include<string.h>
-int main()
-{
-        char str[100];
-        printf("Enter a string:\n");
-        fgets(str,100,stdin);
-        str[strcspn(str,"\n")]='\0';
-        int count=1;
-        printf("The total number of words are:");
-        for(int i=0;str[i]!='\0';i++)
-        {
-                if(str[i]==' '||str[i]=='\t'||str[i]=='\n')
-                {
-                        count++;
-                }
-        }
-        printf("%d\n",count);
-        return 0;
-}
-```
-## 6.Program to check whether a string is palindrome or not
+## 5.Program to check whether a string is palindrome or not
 ```c
 #include<stdio.h>
 #include<string.h>
@@ -138,7 +115,7 @@ int main()
 }
 
 ```
-## 7.Program to count vowels, consonants, digits, and spaces in a given string
+## 6.Program to count vowels, consonants, digits, and spaces in a given string
 ```c
 #include<stdio.h>
 #include<string.h>
@@ -180,7 +157,7 @@ int main()
         return 0;
 }
 ```
-## 8.Program to Concatenate two strings without using strcat()
+## 7.Program to Concatenate two strings without using strcat()
 ```c
 #include<stdio.h>
 #include<string.h>
@@ -202,7 +179,7 @@ int main()
         return 0;
 }
 ```
-## 9.Program to Count Frequency of each character in a string
+## 8.Program to Count Frequency of each character in a string
 ```c
 #include<stdio.h>
 #include<string.h>
@@ -235,7 +212,7 @@ int main()
 }
 
 ```
-## 10.Program to check strings are anagram or not
+## 9.Program to check strings are anagram or not
 ```c
 #include<stdio.h>
 #include<string.h>
@@ -290,7 +267,7 @@ int main()
         return 0;
 }
 ```
-## 11. Program to find the longest word in a sentence
+## 10. Program to find the longest word in a sentence
 ```c
 #include<stdio.h>
 #include<string.h>
