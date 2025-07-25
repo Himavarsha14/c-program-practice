@@ -626,4 +626,35 @@ int main() {
     return 0;
 }
 ```
+## 20.Write a C program to input an array and print all unique pairs of values whose sum is equal to 3, ensuring that no value is reused in multiple pairs.
+```c
+#include <stdio.h>
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    int arr[100], i, j;
+
+    for(i = 0; i < n; i++)
+        scanf("%d", &arr[i]);
+
+    for(i = 0; i < n; i++) {
+        for(j = i + 1; j < n; j++) {
+            if(arr[i] + arr[j] == 3) {
+                // Check if pair already printed
+                int printed = 0;
+                for(int k = 0; k < i; k++) {
+                    if((arr[k] == arr[i]) || (arr[k] == arr[j])) {
+                        printed = 1;
+                        break;
+                    }
+                }
+                if(!printed)
+                    printf("(%d, %d)\n", arr[i], arr[j]);
+            }
+        }
+    }
+    return 0;
+}
+```
 
