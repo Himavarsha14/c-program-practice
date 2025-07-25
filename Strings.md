@@ -315,5 +315,32 @@ int main()
     return 0;
 }
 ```
+## 11.Find the length of the last word in a string 
+```c
+#include <stdio.h>
+#include <string.h>
 
+int main() {
+    char str[100];
+    int count = 0;
+    fgets(str, 100, stdin);                             // 1. Reads input including spaces
+    str[strcspn(str, "\n")] = '\0';                     // 2. Removes newline character from input
+
+    int length = strlen(str);                           // 3. Finds the length of the string
+    int i;
+
+    // 4. FOR LOOP 1: Skip trailing spaces from the end of the string
+    for (i = length - 1; i >= 0 && str[i] == ' '; i--);
+    // Now, i points to the last character of the last word
+
+    // 5. FOR LOOP 2: Count characters in the last word
+    for (; i >= 0 && str[i] != ' '; i--) {
+        count++;
+    }
+
+    // 6. Print the result
+    printf("%d\n", count);
+    return 0;
+}
+```
 
