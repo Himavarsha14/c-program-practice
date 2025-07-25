@@ -695,3 +695,75 @@ int main()
         return 0;
 }
 ```
+## 10.Reversing a Linked list
+```c
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+        int data;
+        struct node *next;
+};
+struct node *phead=NULL;
+void insert_begin(int data)
+{
+        struct node *pnew=(struct node *)malloc(sizeof(struct node));
+        if(pnew==NULL)
+        {
+                printf("Malloc error\n");
+                return;
+        }
+        pnew->data=data;
+        pnew->next=NULL;
+        if(phead==NULL)
+        {
+                phead=pnew;
+        }
+        else
+        {
+                pnew->next=phead;
+                phead=pnew;
+        }
+}
+void display()
+{
+        struct node *ptrav=phead;
+        while(ptrav!=NULL)
+        {
+                printf("%d ",ptrav->data);
+                ptrav=ptrav->next;
+        }
+}
+void reverse()
+{
+        struct node *curr=phead;
+        struct node *next=NULL;
+        struct node *prev=NULL;
+        while(curr!=NULL)
+        {
+                next=curr->next;
+                curr->next=prev;
+                prev=curr;
+                curr=next;
+        }
+        phead=prev;
+}
+int main()
+{
+        int nodes,data,i;
+        printf("NUmber of nodes:\n");
+        scanf("%d",&nodes);
+        for(i=0;i<nodes;i++)
+        {
+                printf("Enter data for node %d:\n",i+1);
+                scanf("%d",&data);
+                insert_begin(data);
+        }
+        printf("Linked list before reversal:\n");
+        display();
+        printf("\nLinked list after reversal:\n");
+        reverse();
+        display();
+
+}
+```
