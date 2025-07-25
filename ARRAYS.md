@@ -597,5 +597,33 @@ int main() {
     return 0;
 }
 ```
+## 19.Write a C program to read an integer target, an array of n integers, and print all indices where the array element equals target.
+```c
+#include <stdio.h>
 
+int main() {
+    int target, n;
+
+    printf("Enter target value: ");
+    scanf("%d", &target);
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    int arr[n];
+    printf("Enter %d elements:\n", n);
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Target found at indices: ");
+    for(int i = 0; i < n; i++) {
+        if(arr[i] == target) {
+            printf("%d ", i);
+        }
+    }
+
+    return 0;
+}
+```
 
