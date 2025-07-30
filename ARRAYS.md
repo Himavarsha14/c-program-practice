@@ -735,4 +735,42 @@ int main()
         return 0;
 }
 ```
+## 23.Program to find sum of matrices
+```c
+#include<stdio.h>
+int main()
+{
+        int rows,cols;
+        printf("Enter number of rows and columns:\n");
+        scanf("%d %d",&rows,&cols);
+        int arr1[rows][cols],arr2[rows][cols],sum[rows][cols];
+        printf("Enter elements of first matrix:\n");
+        for(int i=0;i<rows;i++)
+        {
+                for(int j=0;j<cols;j++)
+                {
+                        scanf("%d",&arr1[i][j]);
+                }
+        }
+        printf("Enter the elements of second matrix:\n");
+        for(int i=0;i<rows;i++)
+        {
+                for(int j=0;j<cols;j++)
+                {
+                        scanf("%d",&arr2[i][j]);
+
+                }
+        }
+        printf("The sum of matrices are:\n");
+        for(int i=0;i<rows;i++)
+        {
+                for(int j=0;j<cols;j++)
+                {
+                        sum[i][j]=arr1[i][j]+arr2[i][j];
+                        printf("%d ",sum[i][j]);
+                }
+        }
+        return 0;
+}
+```
 
