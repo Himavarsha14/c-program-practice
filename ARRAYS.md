@@ -657,4 +657,40 @@ int main() {
     return 0;
 }
 ```
+## 21.C program to delete element at particular position
+```c
+#include<stdio.h>
+int main()
+{
+        int n;
+        printf("Enter the size of the array:\n");
+        scanf("%d",&n);
+        int arr[n];
+        printf("Enter the elements of array:\n");
+        for(int i=0;i<n;i++)
+        {
+                scanf("%d",&arr[i]);
+        }
+        printf("Array before deleting:\n");
+        for(int i=0;i<n;i++)
+        {
+                printf("%d ",arr[i]);
+        }
+        printf("\n");
+        int pos;
+        printf("Enter position to delete:\n");
+        scanf("%d",&pos);
+        for(int i=pos;i<n;i++)
+        {
+                arr[i]=arr[i]+1;
+        }
+        n--;
+        printf("Array after deleting:\n");
+        for(int i=0;i<n;i++)
+        {
+                printf("%d ",arr[i]);
+        }
+        return 0;
+}
+```
 
