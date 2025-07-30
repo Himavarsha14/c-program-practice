@@ -680,6 +680,12 @@ int main()
         int pos;
         printf("Enter position to delete:\n");
         scanf("%d",&pos);
+        if(pos<0 || pos>n)
+        {
+                printf("Invalid position\n");
+        }
+        else
+        {
         for(int i=pos;i<n;i++)
         {
                 arr[i]=arr[i]+1;
@@ -690,8 +696,11 @@ int main()
         {
                 printf("%d ",arr[i]);
         }
+        }
         return 0;
 }
+
+
 ```
 ## 22.C program to find second smallest number in an array
 ```c
