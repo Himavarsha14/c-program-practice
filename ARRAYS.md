@@ -693,4 +693,37 @@ int main()
         return 0;
 }
 ```
+## 22.C program to find second smallest number in an array
+```c
+#include<stdio.h>
+#include<limits.h>
+int main()
+{
+        int n;
+        printf("Enter the size of the array:\n");
+        scanf("%d",&n);
+        int arr[n];
+        printf("Enter the elements of the array:\n");
+        for(int i=0;i<n;i++)
+        {
+                scanf("%d",&arr[i]);
+        }
+        int min=INT_MAX;
+        int sec_min=INT_MAX;
+        for(int i=0;i<n;i++)
+        {
+                if(arr[i]<min)
+                {
+                        sec_min=min;
+                        min=arr[i];
+                }
+                else if(arr[i]<sec_min && arr[i]!=min)
+                {
+                     sec_min=arr[i];
+                }
+        }
+        printf("The second largest element in the array is:%d\n",sec_min);
+        return 0;
+}
+```
 
