@@ -881,3 +881,78 @@ int main()
         return 0;
 }
 ```
+## 12.Rotate linked list by one position left
+```c
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+        int data;
+        struct node *next;
+};
+struct node *phead=NULL;
+void insert_end(int data)
+{
+        struct node *pnew=(struct node*)malloc(sizeof(struct node));
+        if(pnew==NULL)
+        {
+                printf("Malloc error\n");
+                return;
+        }
+        pnew->data=data;
+        pnew->next=NULL;
+        if(phead==NULL)
+        {
+                phead=pnew;
+                return;
+        }
+        struct node *ptrav=phead;
+        while(ptrav->next!=NULL)
+        {
+                ptrav=ptrav->next;
+        }
+        ptrav->next=pnew;
+}
+void rotate_left()
+{
+        struct node *ptemp,*ptrav;
+        ptrav=phead;
+        ptemp=phead;
+        phead=phead->next;
+        while(ptrav->next!=NULL)
+        {
+                ptrav=ptrav->next;
+        }
+        ptrav->next=ptemp;
+        ptemp->next=NULL;
+
+}
+void display()
+{
+        struct node *ptrav=phead;
+        while(ptrav!=NULL)
+        {
+                printf("%d ",ptrav->data);
+                ptrav=ptrav->next;
+        }
+        printf("\n");
+}
+int main()
+{
+        int nodes,data,i;
+        printf("Number of nodes:\n");
+        scanf("%d",&nodes);
+        for(i=0;i<nodes;i++)
+        {
+                printf("Enter data for node %d:\n",i+1);
+                scanf("%d",&data);
+                insert_end(data);
+        }
+        printf("List before rotating:\n");
+        display();
+        printf("List after rotating left by one position:\n");
+        rotate_left();
+        display();
+        return 0;
+}
+```
