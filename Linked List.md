@@ -767,3 +767,117 @@ int main()
 
 }
 ```
+## 11.Program to merge two lists
+```c
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+        int data;
+        struct node *next;
+};
+struct node *phead=NULL;
+struct node *phead1=NULL;
+void list1(int data1)
+{
+        struct node *pnew=(struct node*)malloc(sizeof(struct node));
+        if(pnew==NULL)
+        {
+                printf("Malloc error\n");
+                return;
+        }
+        pnew->data=data1;
+        pnew->next=NULL;
+        if(phead==NULL)
+        {
+                phead=pnew;
+                return;
+        }
+        struct node *ptrav=phead;
+        while(ptrav->next!=NULL)
+        {
+                ptrav=ptrav->next;
+        }
+        ptrav->next=pnew;
+}
+void list2(int data2)
+{
+        struct node *pnew1=(struct node*)malloc(sizeof(struct node));
+        if(pnew1==NULL)
+        {
+                printf("Malloc erroe\n");
+        }
+        pnew1->data=data2;
+        pnew1->next=NULL;
+        if(phead1==NULL)
+        {
+                phead1=pnew1;
+                return;
+        }
+        struct node *ptrav=phead1;
+        while(ptrav->next!=NULL)
+        {
+                ptrav=ptrav->next;
+        }
+        ptrav->next=pnew1;
+}
+void merge()
+{
+        struct node *ptrav=phead;
+        while(ptrav->next!=NULL)
+        {
+                ptrav=ptrav->next;
+        }
+        ptrav->next=phead1;
+}
+void display()
+{
+        struct node *ptrav=phead;
+        while(ptrav!=NULL)
+        {
+                printf("%d ",ptrav->data);
+                ptrav=ptrav->next;
+        }
+        printf("\n");
+}
+void display2()
+{
+        struct node *ptrav=phead1;
+        while(ptrav!=NULL)
+        {
+                printf("%d ",ptrav->data);
+                ptrav=ptrav->next;
+        }
+        printf("\n");
+}
+
+int main()
+{
+        int n1,n2,i,data1,data2;
+        printf("Number of nodes for list1:\n");
+        scanf("%d",&n1);
+        printf("Number of nodes for list2:\n");
+        scanf("%d",&n2);
+        for(i=0;i<n1;i++)
+        {
+                printf("Enter data for node %d:\n",i+1);
+                scanf("%d",&data1);
+                list1(data1);
+        }
+        printf("List 1:\n");
+        display();
+        printf("\n");
+        for(i=0;i<n2;i++)
+        {
+                printf("Enter data for node %d:\n",i+1);
+                scanf("%d",&data2);
+                list2(data2);
+        }
+        printf("List 2:\n");
+        display2();
+        printf("Merged list:\n");
+        merge();
+        display();
+        return 0;
+}
+```
