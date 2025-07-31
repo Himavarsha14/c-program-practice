@@ -436,4 +436,45 @@ int main()
         return 0;
 }
 ```
+## 15.Program to append two strings using DMA calls
+```c
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main()
+{
+        char *str,*append;
+        str=(char *)malloc(100*sizeof(char));
+        if(str==NULL)
+        {
+                printf("Malloc error\n");
+                return 1;
+        }
+        printf("Enter inital string:\n");
+        scanf("%s",str);
+        append=(char *)malloc(100* sizeof(char));
+        if(append==NULL)
+        {
+                printf("Malloc error\n");
+                return 1;
+        }
+        printf("Enter a string:\n");
+        scanf("%s",append);
+        char *str1;
+        str1=(char *)realloc(str,strlen(str)+strlen(append)+1);
+        if(str1==NULL)
+        {
+                printf("realloc error\n");
+                free(str);
+                free(append);
+                return 1;
+        }
+
+        str=str1;
+        strcat(str,append);
+        printf("new string:%s\n",str);
+        free(str);
+        return 0;
+}
+```
 
