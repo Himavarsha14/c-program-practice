@@ -406,4 +406,34 @@ int main()
     return 0;
 }
 ```
+## 14.Program to count and list substrings of a string
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[100];
+        printf("Enter a substring:\n");
+        fgets(str,100,stdin);
+        str[strcspn(str,"\n")]='\0';
+        int len=strlen(str);
+        int count=0;
+        int i,j,k;
+        printf("The substrings are:\n");
+        for(i=0;i<len;i++)
+        {
+                for(j=i;j<len;j++)
+                {
+                        for(k=i;k<=j;k++)
+                        {
+                                printf("%c",str[k]);
+                        }
+                        printf("\n");
+                        count++;
+                }
+        }
+        printf("The number of substrings are:%d'\n",count);
+        return 0;
+}
+```
 
