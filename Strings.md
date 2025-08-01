@@ -477,4 +477,48 @@ int main()
         return 0;
 }
 ```
+## 16.Program to find whether a substring is present in a string or not
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[100];
+        printf("Enter a string:\n");
+        fgets(str,100,stdin);
+        str[strcspn(str,"\n")]='\0';
+        char substr[20];
+        printf("Enter substring:\n");
+        fgets(substr,20,stdin);
+        substr[strcspn(substr,"\n")]='\0';
+        int len=strlen(str);
+        int sublen=strlen(substr);
+        int found=0;
+        for(int i=0;i<=len-sublen;i++)
+        {
+        int j;
+        for(j=0;j<sublen;j++)
+        {
+        if(str[i+j]!=substr[j])
+        {
+        break;
+        }
+        }
+        if(j==sublen)
+        {
+        found=1;
+        break;
+        }
+        }
+if(found==1)
+{
+printf("The substring is present\n");
+}
+else
+{
+        printf("The substring is not present:\n");
+}
+return 0;
+}
+```
 
