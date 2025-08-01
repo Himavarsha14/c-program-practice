@@ -773,4 +773,42 @@ int main()
         return 0;
 }
 ```
+## 24.Program to reverse an array using recursion
+```c
+#include<stdio.h>
+void rev(int arr[],int start,int end)
+{
+        if(start>=end)
+        {
+                return;
+        }
+        else
+        {
+                int temp=arr[start];
+                arr[start]=arr[end];
+                arr[end]=temp;
+                rev(arr,start+1,end-1);
+        }
+}
+int main()
+{
+        int n;
+        printf("Enter the size of the array:\n");
+        scanf("%d",&n);
+        int arr[n];
+        printf("Enter the values of the array:\n");
+        for(int i=0;i<n;i++)
+        {
+                scanf("%d",&arr[i]);
+        }
+        printf("The reverse array is:\n");
+        rev(arr,0,n-1);
+        for(int i=0;i<n;i++)
+        {
+                printf("%d ",arr[i]);
+        }
+        return 0;
+}
+```
+
 
