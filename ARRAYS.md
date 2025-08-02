@@ -810,5 +810,45 @@ int main()
         return 0;
 }
 ```
+## 25.Program to find whether the given matrix is symmetric or not
+```c
+#include<stdio.h>
+int main()
+{
+        int rows,cols;
+        printf("Enter number of rows and coloumns:\n");
+        scanf("%d %d",&rows,&cols);
+        int arr[rows][cols];
+        printf("Enter elements of the matrix:\n");
+        for(int i=0;i<rows;i++)
+        {
+                for(int j=0;j<cols;j++)
+                {
+                        scanf("%d",&arr[i][j]);
+                }
+        }
+        int flag=1;
+        for(int i=0;i<rows;i++)
+        {
+                for(int j=0;j<cols;j++)
+                {
+                        if(arr[i][j]!=arr[j][i])
+                        {
+                                flag=0;
+                                break;
+                        }
+                }
+        }
+        if(flag)
+        {
+                printf("The given matrix is a symmetric matrix.\n");
+        }
+        else
+        {
+                printf("The given matrix  is a non-syymetric matrix.\n");
+        }
+        return 0;
+}
+```
 
 
