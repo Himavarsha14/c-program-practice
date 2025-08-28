@@ -240,6 +240,92 @@ int main() {
     return 0;
 }
 ```
+## 16.WRITE A C PROGRAM TO CALCULATE THE SUM OF NUMBERS FROM 1 TO 100 USING A WHILE LOOP
+```c
+#include <stdio.h>
+int main() {
+    int i = 1, sum = 0;
+    while (i <= 100) {
+        sum += i;
+        i++;
+    }
+    printf("Sum = %d\n", sum);
+    return 0;
+}
+```
+## 17.WRITE A C PROGRAM TO FIND THE FACTORIAL OF A GIVEN NUMBER USING A FOR LOOP
+```c
+#include <stdio.h>
+int main() {
+    int n, fact = 1;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    for (int i = 1; i <= n; i++) {
+        fact *= i;
+    }
+    printf("Factorial = %d\n", fact);
+    return 0;
+}
+```
+## 18.WRITE A C PROGRAM TO CHECK WHETHER A GIVEN NUMBER IS PRIME OR NOT USING A WHILE LOOP
+```c
+#include <stdio.h>
+int main() {
+    int n, i = 2, flag = 1;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    if (n <= 1) flag = 0;
+    while (i <= n / 2) {
+        if (n % i == 0) {
+            flag = 0;
+            break;
+        }
+        i++;
+    }
+    if (flag) printf("%d is Prime\n", n);
+    else printf("%d is Not Prime\n", n);
+    return 0;
+}
+```
+## 19.WRITE A C PROGRAM TO FIND THE SUM OF DIGITS OF A NUMBER USING A WHILE LOOP
+```c
+#include <stdio.h>
+int main() {
+    int n, sum = 0, digit;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    while (n > 0) {
+        digit = n % 10;
+        sum += digit;
+        n /= 10;
+    }
+    printf("Sum of digits = %d\n", sum);
+    return 0;
+}
+```
+## 20.WRITE A C PROGRAM TO PRINT FIBONACCI SERIES UP TO N TERMS USING A FOR LOOP
+```c
+#include <stdio.h>
+int main() {
+    int n, a = 0, b = 1, c;
+    printf("Enter number of terms: ");
+    scanf("%d", &n);
+    printf("Fibonacci Series: ");
+    for (int i = 1; i <= n; i++) {
+        printf("%d ", a);
+        c = a + b;
+        a = b;
+        b = c;
+    }
+    return 0;
+}
+```
+
+
+
+
+
+
 
 
 
