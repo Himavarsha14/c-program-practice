@@ -850,5 +850,137 @@ int main()
         return 0;
 }
 ```
+## 26.Write a program to modify the elements of an array such that the first element becomes the last element of the array and all other elements are shifted towards left.
+## Eg:1 2 3 4 5 6 7 8 9 ->2 3 4 5 6 7 8 9 1
+```c
+#include<stdio.h>
+int main()
+{
+        int n;
+        printf("Enter the size of the array:\n");
+        scanf("%d",&n);
+        int arr[n];
+        printf("Enter the elements of the array:\n");
+        for(int i=0;i<n;i++)
+        {
+                scanf("%d",&arr[i]);
+        }
+        int last=arr[0];
+        for(int i=0;i<n-1;i++)
+        {
+                arr[i]=arr[i+1];
+        }
+        arr[n-1]=last;
+        printf("The array elements after shifting:\n");
+        for(int i=0;i<n;i++)
+        {
+                printf("%d ",arr[i]);
+        }
+        return 0;
+}
 
+```
+## 27.Write a program to reverse a portion of an array.
+```c
+#include<stdio.h>
+int main()
+{
+        int n;
+        printf("Enter the size of the array:\n");
+        scanf("%d",&n);
+        int arr[n];
+        printf("Enter the elements of the array:\n");
+        for(int i=0;i<n;i++)
+        {
+                scanf("%d",&arr[i]);
+        }
+        int start,end;
+        printf("Enter start and end position to reverse portion:\n");
+        scanf("%d %d",&start,&end);
+        while(start<end)
+        {
+                int temp=arr[start];
+                arr[start]=arr[end];
+                arr[end]=temp;
+                start++;
+                end--;
+        }
+        printf("Array after reversing some portion:\n");
+        for(int i=0;i<n;i++)
+        {
+                printf("%d ",arr[i]);
+        }
+        printf("\n");
+        return 0;
+}
+```
+## 28.Write a program to find the kth smallest element in an array.
+```c
+#include<stdio.h>
+int main()
+{
+        int n;
+        printf("Enter the size of the array:\n");
+        scanf("%d",&n);
+        int arr[n];
+        printf("Enter the elements of the array:\n");
+        for(int i=0;i<n;i++)
+        {
+                scanf("%d",&arr[i]);
+        }
+        int k;
+        printf("Enter the value of the k:\n");
+        scanf("%d",&k);
+        for(int i=0;i<n-1;i++)
+        {
+                for(int j=0;j<n-i-1;j++)
+                {
+                        if(arr[i]>arr[i+1])
+                        {
+                                int temp=arr[j];
+                                arr[j]=arr[j+1];
+                                arr[j+1]=temp;
+                        }
+                }
+        }
+        printf("The kth smallest element is:%d \n",arr[k]);
+        return 0;
+}
+```
+## 29.Write a C program to create a next greater elements array from a given array.For each element in the array, find the first element to its right that is greater.If no greater element exists, store -1.Print the resulting array.
+```c
+include<stdio.h>
+int main()
+{
+        int n;
+        printf("Enter the size of the array:\n");
+        scanf("%d",&n);
+        int arr[n];
+        printf("Enter the elements of the array:\n");
+        for(int i=0;i<n;i++)
+        {
+                scanf("%d",&arr[i]);
+        }
+        int next_ge[n];
+        for(int i=0;i<n;i++)
+        {
+                next_ge[i]=-1;
+                for(int j=i+1;j<n;j++)
+                {
+                        if(arr[j]>arr[i])
+                        {
+                                next_ge[i]=arr[j];
+                                break;
+                        }
+                }
+        }
+        printf("Elements of next greater array:\n");
+        for(int i=0;i<n;i++)
+        {
+                printf("%d ",next_ge[i]);
+        }
+        printf("\n");
+        return 0;
+}
+```
 
