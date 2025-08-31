@@ -983,4 +983,700 @@ int main()
         return 0;
 }
 ```
+## 30.Program in C for adding two matrices of the same size
+```c
+#include <stdio.h>
+
+int main() {
+    int r, c;
+    printf("Enter number of rows and columns: ");
+    scanf("%d %d", &r, &c);
+
+    int a[r][c], b[r][c], sum[r][c];
+
+    printf("Enter elements of first matrix:\n");
+    for(int i=0;i<r;i++) {
+        for(int j=0;j<c;j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+    printf("Enter elements of second matrix:\n");
+    for(int i=0;i<r;i++) {
+        for(int j=0;j<c;j++) {
+            scanf("%d", &b[i][j]);
+        }
+    }
+    for(int i=0;i<r;i++) {
+        for(int j=0;j<c;j++) {
+            sum[i][j] = a[i][j] + b[i][j];
+        }
+    }
+
+    printf("Resultant Matrix after Addition:\n");
+    for(int i=0;i<r;i++) {
+        for(int j=0;j<c;j++) {
+            printf("%d ", sum[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+```
+## 31.Program in C for subtraction of two matrices
+```c
+#include <stdio.h>
+
+int main() {
+    int r, c;
+    printf("Enter number of rows and columns: ");
+    scanf("%d %d", &r, &c);
+
+    int a[r][c], b[r][c], diff[r][c];
+
+    printf("Enter elements of first matrix:\n");
+    for(int i=0;i<r;i++) {
+        for(int j=0;j<c;j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+    printf("Enter elements of second matrix:\n");
+    for(int i=0;i<r;i++) {
+        for(int j=0;j<c;j++) {
+            scanf("%d", &b[i][j]);
+        }
+    }
+    for(int i=0;i<r;i++) {
+        for(int j=0;j<c;j++) {
+            diff[i][j] = a[i][j] - b[i][j];
+        }
+    }
+    printf("Resultant Matrix after Subtraction:\n");
+    for(int i=0;i<r;i++) {
+        for(int j=0;j<c;j++) {
+            printf("%d ", diff[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+```
+## 32.Program in C for multiplication of two square matrices
+```c
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("Enter the size of square matrices: ");
+    scanf("%d", &n);
+
+    int a[n][n], b[n][n], mul[n][n];
+
+    printf("Enter elements of first matrix:\n");
+    for(int i=0;i<n;i++) {
+        for(int j=0;j<n;j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+    printf("Enter elements of second matrix:\n");
+    for(int i=0;i<n;i++) {
+        for(int j=0;j<n;j++) {
+            scanf("%d", &b[i][j]);
+        }
+    }
+    for(int i=0;i<n;i++) {
+        for(int j=0;j<n;j++) {
+            mul[i][j] = 0;
+            for(int k=0;k<n;k++) {
+                mul[i][j] += a[i][k] * b[k][j];
+            }
+        }
+    }
+
+    printf("Resultant Matrix after Multiplication:\n");
+    for(int i=0;i<n;i++) {
+        for(int j=0;j<n;j++) {
+            printf("%d ", mul[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+```
+## 33.Program in C to find the transpose of a given matrix
+```c
+#include <stdio.h>
+
+int main() {
+    int r, c;
+    printf("Enter number of rows and columns: ");
+    scanf("%d %d", &r, &c);
+    int a[r][c], transpose[c][r];
+    printf("Enter elements of the matrix:\n");
+    for(int i=0;i<r;i++) {
+        for(int j=0;j<c;j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+    for(int i=0;i<r;i++) {
+        for(int j=0;j<c;j++) {
+            transpose[j][i] = a[i][j];
+        }
+    }
+    printf("Transpose of the Matrix:\n");
+    for(int i=0;i<c;i++) {
+        for(int j=0;j<r;j++) {
+            printf("%d ", transpose[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+```
+## 34.Program in C to find the sum of the right diagonals of a matrix
+```c
+#include <stdio.h>
+
+int main() {
+    int n, sum = 0;
+    printf("Enter size of square matrix: ");
+    scanf("%d", &n);
+
+    int a[n][n];
+    printf("Enter elements of the matrix:\n");
+    for(int i=0;i<n;i++) {
+        for(int j=0;j<n;j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+    for(int i=0;i<n;i++) {
+        sum += a[i][i];  
+    }
+
+    printf("Sum of Right Diagonal = %d\n", sum);
+    return 0;
+}
+```
+## 35.Program in c to find the sum of the left diagonals of a matrix
+```c
+#include <stdio.h>
+
+int main() {
+    int n, sum = 0;
+    printf("Enter size of square matrix: ");
+    scanf("%d", &n);
+
+    int a[n][n];
+    printf("Enter elements of the matrix:\n");
+    for(int i=0;i<n;i++) {
+        for(int j=0;j<n;j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+    for(int i=0;i<n;i++) {
+        sum += a[i][n-1-i];  
+    }
+
+    printf("Sum of Left Diagonal = %d\n", sum);
+    return 0;
+}
+```
+## 36.Program to find sum of each row and column in c
+```c
+#include<stdio.h>
+int main()
+{
+    int r,c;
+    scanf("%d %d",&r,&c);
+    int arr[r][c];
+    for(int i=0;i<r;i++)
+    {
+        for(int j=0;j<c;j++)
+        {
+            scanf("%d",&arr[i][j]);
+        }
+    }
+    for(int i=0;i<r;i++)
+    {
+        int row_sum=0;
+        for(int j=0;j<c;j++)
+        {
+            row_sum+=arr[i][j];
+        }
+        printf("sum of row %d is:%d\n",i+1,row_sum);
+    }
+    for(int j=0;j<c;j++)
+    {
+        int col_sum=0;
+        for(int i=0;i<r;i++)
+        {
+            col_sum+=arr[i][j];
+    }
+    printf("sum of col %d is :%d\n",j+1,col_sum);
+    }
+    return 0;
+}
+```
+## 37.Program to print the lower triangular matrix
+```c
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("Enter size of square matrix: ");
+    scanf("%d", &n);
+
+    int a[n][n];
+    printf("Enter elements of the matrix:\n");
+    for(int i=0;i<n;i++) {
+        for(int j=0;j<n;j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+    printf("Lower Triangular Matrix:\n");
+    for(int i=0;i<n;i++) {
+        for(int j=0;j<n;j++) {
+            if(i >= j) 
+                printf("%d ", a[i][j]);
+            else
+                printf("0 ");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+```
+## 38.Program to print upper triangular matrix
+```c
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("Enter size of square matrix: ");
+    scanf("%d", &n);
+
+    int a[n][n];
+    printf("Enter elements of the matrix:\n");
+    for(int i=0;i<n;i++) {
+        for(int j=0;j<n;j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+    printf("Upper Triangular Matrix:\n");
+    for(int i=0;i<n;i++) {
+        for(int j=0;j<n;j++) {
+            if(i <= j)  
+                printf("%d ", a[i][j]);
+            else
+                printf("0 ");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+```
+## 39.Program in c to find determinant of the matrix
+```c
+#include <stdio.h>
+
+int main() {
+    int a[3][3];
+    printf("Enter elements of 3x3 matrix:\n");
+    for(int i=0;i<3;i++) {
+        for(int j=0;j<3;j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+    int det = a[0][0]*(a[1][1]*a[2][2] - a[1][2]*a[2][1])
+            - a[0][1]*(a[1][0]*a[2][2] - a[1][2]*a[2][0])
+            + a[0][2]*(a[1][0]*a[2][1] - a[1][1]*a[2][0]);
+
+    printf("Determinant of the matrix = %d\n", det);
+    return 0;
+}
+```
+## 40.Program to check whether two arrays are equal or not
+```c
+#include <stdio.h>
+
+int main() {
+    int r, c, flag = 1;
+    printf("Enter number of rows and columns: ");
+    scanf("%d %d", &r, &c);
+
+    int a[r][c], b[r][c];
+    printf("Enter elements of first matrix:\n");
+    for(int i=0;i<r;i++) {
+        for(int j=0;j<c;j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+    printf("Enter elements of second matrix:\n");
+    for(int i=0;i<r;i++) {
+        for(int j=0;j<c;j++) {
+            scanf("%d", &b[i][j]);
+        }
+    }
+
+    for(int i=0;i<r;i++) {
+        for(int j=0;j<c;j++) {
+            if(a[i][j] != b[i][j]) {
+                flag = 0;
+                break;
+            }
+        }
+    }
+
+    if(flag)
+        printf("Matrices are Equal\n");
+    else
+        printf("Matrices are Not Equal\n");
+
+    return 0;
+}
+```
+## 41.Program to check whether a matrix is sparse or not
+```c
+#include <stdio.h>
+
+int main() {
+    int r, c, count = 0;
+    printf("Enter number of rows and columns: ");
+    scanf("%d %d", &r, &c);
+
+    int a[r][c];
+    printf("Enter elements of the matrix:\n");
+    for(int i=0;i<r;i++) {
+        for(int j=0;j<c;j++) {
+            scanf("%d", &a[i][j]);
+            if(a[i][j] == 0) {
+                count++;
+            }
+        }
+    }
+
+    int total = r * c;
+    if(count > total/2)
+        printf("The matrix is a Sparse Matrix\n");
+    else
+        printf("The matrix is NOT a Sparse Matrix\n");
+
+    return 0;
+}
+```
+## 42.Write a program in C to find the majority element of an array. (A majority element in an array A[] of size n is an element that appears more than n/2 times and hence there is at most one such element).
+```c
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("Enter size of array: ");
+    scanf("%d", &n);
+
+    int arr[n];
+    printf("Enter elements:\n");
+    for(int i=0;i<n;i++) scanf("%d", &arr[i]);
+
+    int count, majority = -1;
+    for(int i=0;i<n;i++) {
+        count = 0;
+        for(int j=0;j<n;j++) {
+            if(arr[j] == arr[i])
+                count++;
+        }
+        if(count > n/2) {
+            majority = arr[i];
+            break;
+        }
+    }
+
+    if(majority != -1)
+        printf("Majority Element = %d\n", majority);
+    else
+        printf("No Majority Element\n");
+
+    return 0;
+}
+```
+## 43.Write a program in C to find the missing number in a given array. There are no duplicates in the list.
+```c
+#include<stdio.h>
+int main()
+{
+    int n;
+    printf("enter the size of the array:\n");
+    scanf("%d",&n);
+    int arr[n-1];
+    printf("Enter the elements of the array:\n");
+    for(int i=0;i<n-1;i++)
+    {
+    scanf("%d",&arr[i]);
+    }
+    int total=n*(n+1)/2;
+    int sum=0;
+    for(int i=0;i<n-1;i++)
+    {
+        sum+=arr[i];
+    }
+    printf("The missing element is: %d",total-sum);
+    return
+}
+```
+## 44.Write a program in C to find the two repeating elements in a given array
+```c
+#include<stdio.h>
+int main()
+{
+    int n;
+    printf("enter the size of the array:\n");
+    scanf("%d",&n);
+    int arr[n+2];
+    printf("Enter the elements of the array:\n");
+    for(int i=0;i<n+2;i++)
+    {
+    scanf("%d",&arr[i]);
+    }
+    printf("Repeating elements:");
+    for(int i=0;i<n+2;i++)
+    {
+        for(int j=i+1;j<n+2;j++)
+        {
+            if(arr[i]==arr[j])
+            {
+                printf("%d",arr[j]);
+                break;
+            }
+        }
+        printf("\n");
+    }
+    return 0;
+}
+```
+## 45.Program to check is an element is present in the array or not.
+```c
+#include <stdio.h>
+
+int main() {
+    int n, key, found = 0;
+    printf("Enter size of array: ");
+    scanf("%d", &n);
+    int arr[n];
+    printf("Enter elements:\n");
+    for(int i=0;i<n;i++) scanf("%d", &arr[i]);
+    printf("Enter element to search: ");
+    scanf("%d", &key);
+
+    for(int i=0;i<n;i++) {
+        if(arr[i] == key) {
+            found = 1;
+            break;
+        }
+    }
+    if(found)
+        printf("Element %d is present in array\n", key);
+    else
+        printf("Element %d is NOT present in array\n", key);
+
+    return 0;
+}
+```
+## 46.Create a function to calculate the average of elements in an array.
+```c
+#include<stdio.h>
+float average(int arr[],int n);
+int main()
+{
+    int n;
+    printf("Enter the size of the array:\n");
+    scanf("%d",&n);
+    int arr[n];
+    printf("Enter the elements of the array:\n");
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    printf("The average of the elements of the array is:%.2f",average(arr,n));
+}
+float average(int arr[],int n)
+{
+    int sum=0;
+    for(int i=0;i<n;i++)
+    {
+        sum+=arr[i];
+    }
+    int average=sum/n;
+    return (float)average;
+}
+```
+## 47.Write a program to count the number of even and odd elements in an array.
+```c
+#include <stdio.h>
+int main() {
+    int n, even=0, odd=0;
+    printf("Enter size of array: ");
+    scanf("%d", &n);
+    int arr[n];
+    printf("Enter elements:\n");
+    for(int i=0;i<n;i++) {
+        scanf("%d", &arr[i]);
+        if(arr[i] % 2 == 0)
+            even++;
+        else
+            odd++;
+    }
+    printf("Even Count = %d\n", even);
+    printf("Odd Count  = %d\n", odd);
+    return 0;
+}
+```
+## 48.Implement a function to reverse the elements of an array.
+```c
+#include <stdio.h>
+
+void reverse(int arr[], int n) {
+    int start = 0, end = n-1;
+    while(start < end) {
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+        start++;
+        end--;
+    }
+}
+
+int main() {
+    int n;
+    printf("Enter size of array: ");
+    scanf("%d", &n);
+
+    int arr[n];
+    printf("Enter elements:\n");
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+    reverse(arr, n);
+    printf("Reversed Array:\n");
+    for(int i=0;i<n;i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    return 0;
+}
+```
+## 49.Implement a program to delete an element at a specific position in an array
+```c
+#include <stdio.h>
+int main() {
+    int n, pos;
+    printf("Enter size of array: ");
+    scanf("%d", &n);
+    int arr[n];
+    printf("Enter elements:\n");
+    for(int i=0;i<n;i++)
+    { 
+        scanf("%d", &arr[i]);
+    }
+    printf("Enter position to delete (1 to %d): ", n);
+    scanf("%d", &pos);
+
+    if(pos < 1 || pos > n)
+    {
+        printf("Invalid position!\n");
+    }
+    else
+    {
+        for(int i=pos-1;i<n-1;i++)
+        {
+            arr[i] = arr[i+1];
+        }
+        n--; 
+        printf("Array after deletion:\n");
+        for(int i=0;i<n;i++) 
+        {
+            printf("%d ", arr[i]);
+        }
+    }
+    return 0;
+}
+```
+## 50.Write a function to find the product of all elements in an array.
+```c
+#include <stdio.h>
+
+long long product(int arr[], int n) {
+    long long prod = 1;
+    for(int i=0;i<n;i++) 
+    {
+        prod *= arr[i];
+    }
+    return prod;
+}
+
+int main() {
+    int n;
+    printf("Enter size of array: ");
+    scanf("%d", &n);
+
+    int arr[n];
+    printf("Enter elements:\n");
+    for(int i=0;i<n;i++) 
+    {
+        scanf("%d", &arr[i]);
+    }
+    printf("Product = %lld\n", product(arr, n));
+    return 0;
+}
+```
+## 51.Print Square of Array Elements in C
+```c
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("Enter size of array: ");
+    scanf("%d", &n);
+
+    int arr[n];
+    printf("Enter elements:\n");
+    for(int i=0;i<n;i++) scanf("%d", &arr[i]);
+
+    printf("Squares of elements:\n");
+    for(int i=0;i<n;i++) {
+        printf("%d ", arr[i] * arr[i]);
+    }
+    printf("\n");
+    return 0;
+}
+```
+## 52.Print Ascii Values using Array in C.
+```c
+#include <stdio.h>
+
+int main() {
+    char str[100];
+    printf("Enter a string: ");
+    scanf("%s", str);
+
+    printf("ASCII values:\n");
+    for(int i=0; str[i] != '\0'; i++) {
+        printf("%c = %d\n", str[i], str[i]);
+    }
+
+    return 0;
+}
+```
+## 53.
+
+
+
+
 
