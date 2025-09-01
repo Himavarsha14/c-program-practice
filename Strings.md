@@ -600,5 +600,107 @@ int main()
         return 0;
 }
 ```
-## 20.
+## 20.Write a program in C to extract a substring from a given string.
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[100], sub[100];
+    int pos, len, i;
+
+    printf("Enter a string: ");
+    gets(str);
+
+    printf("Enter position and length: ");
+    scanf("%d %d", &pos, &len);
+
+    for (i = 0; i < len && str[pos + i] != '\0'; i++) {
+        sub[i] = str[pos + i];
+    }
+    sub[i] = '\0';
+
+    printf("Substring: %s\n", sub);
+    return 0;
+}
+```
+## 21.Write a C program to check whether a substring is present in a string.
+```c
+#include<stdio.h>
+#include <string.h>
+int main() {
+    char str[100], sub[50];
+
+    printf("Enter main string: ");
+    gets(str);
+
+    printf("Enter substring: ");
+    gets(sub);
+
+    if (strstr(str, sub) != NULL)
+        printf("Substring is present.\n");
+    else
+        printf("Substring not found.\n");
+
+    return 0;
+}
+```
+## without using string manipulation functions
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[100], sub[50];
+    int i, j, found;
+
+    printf("Enter main string: ");
+    gets(str);
+
+    printf("Enter substring: ");
+    gets(sub);
+
+    int n = strlen(str);
+    int m = strlen(sub);
+    found = 0;
+
+    for (i = 0; i <= n - m; i++) {
+        for (j = 0; j < m; j++) {
+            if (str[i + j] != sub[j])
+                break;
+        }
+        if (j == m) { // matched all characters
+            found = 1;
+            break;
+        }
+    }
+
+    if (found)
+        printf("Substring is present.\n");
+    else
+        printf("Substring not found.\n");
+
+    return 0;
+}
+```
+## 22.Write a program in C to read a sentence and replace lowercase characters with uppercase and vice versa.
+```c
+#include <stdio.h>
+
+int main() {
+    char str[100];
+    int i;
+    printf("Enter a sentence: ");
+    gets(str);
+    for (i = 0; str[i] != '\0'; i++) {
+        if (str[i] >= 'a' && str[i] <= 'z') // lowercase
+            str[i] = str[i] - 32;
+        else if (str[i] >= 'A' && str[i] <= 'Z') // uppercase
+            str[i] = str[i] + 32;
+    }
+    printf("Converted sentence: %s\n", str);
+    return 0;
+}
+```
+## 23.
 
