@@ -555,4 +555,50 @@ int main()
         return 0;
 }
 ```
+## 18.Program to find the maximum number of characters in a string
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[100];
+        printf("Enter a string:\n");
+        fgets(str,100,stdin);
+        str[strcspn(str,"\n")]='\0';
+        int count=0;
+        for(int i=0;str[i]!='\0';i++)
+        {
+                count++;
+        }
+        printf("The maximum number of characters are:%d\n",count);
+        return 0;
+}
+```
+## 19.Program to sort given string in ascending order
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[100],temp;
+        fgets(str,100,stdin);
+        str[strcspn(str,"\n")]='\0';
+        int length=strlen(str);
+        for(int i=0;i<length-1;i++)
+        {
+                for(int j=i+1;j<length;j++)
+                {
+                        if(str[i]>str[j])
+                        {
+                                temp=str[i];
+                                str[i]=str[j];
+                                str[j]=temp;
+                        }
+                }
+        }
+        printf("String after sorting in ascending order:%s\n",str);
+        return 0;
+}
+```
+## 20.
 
