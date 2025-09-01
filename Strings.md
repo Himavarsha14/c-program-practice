@@ -788,11 +788,67 @@ int main() {
 ```
 ## 26.Write a program in C to combine two strings manually.
 ```c
-
-
-    return 0;
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char str1[1000],str2[1000];
+    int len1,len2,k=0;
+    printf("Enter the 1st string:");
+    fgets(str1,sizeof(str1),stdin);
+    if(str1[strlen(str1)-1]=='\n')
+        str1[strlen(str1)-1]='\0';
+    printf("\n");
+    printf("Enter the 2nd string:");
+    fgets(str2,sizeof(str2),stdin);
+    if(str2[strlen(str2)-1]=='\n')
+        str2[strlen(str2)-1]='\0';
+    len1=strlen(str1);
+    len2=strlen(str2);
+    char string[len1+len2];
+    for(int i=0;str1[i]!='\0';i++){
+        string[k++]=str1[i];
+    }
+    for(int i=0;str2[i]!='\0';i++){
+        string[k++]=str2[i];
+    }
+    string[k]='\0';
+    printf("%s",string);
+  
 }
 ```
+## 27.Write a program to find smallest and largest word in the given string
+```c
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char str[1000],word[100],largest[100],smallest[100];
+    int k=0,maxlen=0,minlen=1000;
+    fgets(str,sizeof(str),stdin);
+    if(str[strlen(str)-1]=='\n')
+        str[strlen(str)-1]='\0';
+    for(int i=0; ;i++){
+        if((str[i]!=' '&&str[i]!='\0'))
+             word[k++]=str[i];
+        else{     
+           word[k]='\0';
+           if(strlen(word)>maxlen){
+              maxlen=strlen(word);
+              strcpy(largest,word);
+           }
+           if(strlen(word)<minlen&&strlen(word)>0){
+               minlen=strlen(word);
+               strcpy(smallest,word);
+           }
+           k=0;
+        }
+        if(str[i]=='\0')
+              break;
+    }
+    printf("Largest string=%s\n",largest);
+    printf("Smallest string=%s\n",smallest);
+}
+```
+
 
 
 
