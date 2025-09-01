@@ -169,6 +169,61 @@ int main() {
     return 0;
 }
 ```
+## 13.Implement a C program to count the number of bits that need to be flipped to convert integer A to integer B using bitwise operators.
+```c
+#include <stdio.h>
+
+int main() {
+    int A, B;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &A, &B);
+
+    int xor = A ^ B;  // XOR shows differing bits
+    int count = 0;
+
+    while (xor) {
+        count += xor & 1; // check last bit
+        xor >>= 1;        // shift right
+    }
+
+    printf("Number of bits to flip: %d\n", count);
+    return 0;
+}
+```
+## 14.Write a C program to set odd position bits
+```c#include <stdio.h>
+
+int main() {
+    unsigned int n;
+    printf("Enter a number: ");
+    scanf("%u", &n);
+
+    n |= 0xAAAAAAAA; 
+    printf("After setting odd bits: %u\n", n);
+
+    return 0;
+}
+```
+## 15.Count number of set bits in sum of two numbers
+```c
+#include <stdio.h>
+int main() {
+    int a, b;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
+    int sum = a + b;
+    int count = 0;
+    while (sum) {
+        count += sum & 1;
+        sum >>= 1;
+    }
+    printf("Set bits in sum: %d\n", count);
+    return 0;
+}
+```
+
+
+
 
 
 
