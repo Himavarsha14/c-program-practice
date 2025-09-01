@@ -848,6 +848,43 @@ int main(){
     printf("Smallest string=%s\n",smallest);
 }
 ```
+## 28.Write a program in C to convert a string to uppercase.
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char str[100];
+    fgets(str,100,stdin);
+    str[strcspn(str,"\n")]='\0';
+    for(int i=0;str[i]!='\0';i++)
+    {
+        str[i]=str[i]-32;
+    }
+    printf("%s",str);
+    return 0;
+    
+}
+```
+## 29.Write a program in c to convert string to lower case
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char str[100];
+    fgets(str,100,stdin);
+    str[strcspn(str,"\n")]='\0';
+    for(int i=0;str[i]!='\0';i++)
+    {
+        str[i]=str[i]+32;
+    }
+    printf("%s",str);
+    return 0;
+    
+}
+```
+
 
 
 
