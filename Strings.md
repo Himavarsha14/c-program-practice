@@ -702,5 +702,38 @@ int main() {
     return 0;
 }
 ```
-## 23.
+## 23.Write a program in c to find the number of times a given word appears in the given string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[100],sub[100];
+        fgets(str,100,stdin);
+        str[strcspn(str,"\n")]='\0';
+        fgets(sub,100,stdin);
+        sub[strcspn(sub,"\n")]='\0';
+        int count=0,i,j;
+        for(i=0;str[i]!='\0';i++)
+        {
+                for(j=0;sub[j]!='\0';j++)
+                {
+                        if(str[i+j]!=sub[j])
+                        {
+                                break;
+                        }
+                }
+                if(sub[j]=='\0')
+                {
+                        count++;
+                        i=i+j-1;
+                }
+        }
+        printf("The number of times the substring appears:%d\n",count);
+        return 0;
+}
+```
+## 24.Write a program in c to remove characters from a string except alphabets.
+```c
+
 
