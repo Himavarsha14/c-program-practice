@@ -735,5 +735,64 @@ int main()
 ```
 ## 24.Write a program in c to remove characters from a string except alphabets.
 ```c
+#include <stdio.h>
+
+int main() {
+    char str[1000], result[1000];
+    int i, j;
+
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+
+    // Remove newline if present
+    for (i = 0; str[i] != '\0'; i++) {
+        if (str[i] == '\n') str[i] = '\0';
+    }
+
+    // Copy only alphabets
+    for (i = 0, j = 0; str[i] != '\0'; i++) {
+        if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z')) {
+            result[j++] = str[i];
+        }
+    }
+    result[j] = '\0';
+
+    printf("Alphabets only: %s\n", result);
+    return 0;
+}
+```
+## 25.Program to count frequency of each character
+```c
+#include <stdio.h>
+int main() {
+    char str[1000];
+    int i, j, count;
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+    for (i = 0; str[i] != '\0'; i++) {
+        if (str[i] == '\n') str[i] = '\0';
+    }
+    printf("Character frequencies:\n");
+    for (i = 0; str[i] != '\0'; i++) {
+        count = 1;
+        if (str[i] == '0') continue; // Skip if already counted
+        for (j = i + 1; str[j] != '\0'; j++) {
+            if (str[i] == str[j]) {
+                count++;
+                str[j] = '0'; // Mark as counted
+            }
+        }
+
+        printf("%c = %d\n", str[i], count);
+    }
+```
+## 26.Write a program in C to combine two strings manually.
+```c
+
+
+    return 0;
+}
+```
+
 
 
