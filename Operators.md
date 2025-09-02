@@ -244,7 +244,6 @@ int main() {
                     ((x & 0x0000FF00) << 8)  | \
                     ((x & 0x00FF0000) >> 8)  | \
                     ((x & 0xFF000000) >> 24) )
-
 int main() {
     uint32_t b = 0x12345678;  // Example number
     printf("Original: 0x%08X\n", b);
@@ -252,6 +251,124 @@ int main() {
     return 0;
 }
 ```
+## 18.Write a program that enters temperature in Celsius and converts that into Fahrenheit.
+```c
+#include <stdio.h>
+int main() {
+    float celsius, fahrenheit;
+    printf("Enter temperature in Celsius: ");
+    scanf("%f", &celsius);
+    fahrenheit = (celsius * 9 / 5) + 32;
+    printf("%.2f Celsius = %.2f Fahrenheit\n", celsius, fahrenheit);
+    return 0;
+}
+```
+## 19.Write a program that accepts the radius of a circle and calculates the area and perimeter of that circle.
+```c
+#include <stdio.h>
+#define PI 3.14159
+int main() {
+    float radius, area, perimeter;
+    printf("Enter radius of circle: ");
+    scanf("%f", &radius);
+    area = PI * radius * radius;
+    perimeter = 2 * PI * radius;
+    printf("Area = %.2f\n", area);
+    printf("Perimeter = %.2f\n", perimeter);
+
+    return 0;
+}
+```
+## 20.Write a program to accept a number in decimal and print the number in octal and hexadecimal.
+```c
+#include <stdio.h>
+int main() {
+    int num;
+    printf("Enter a decimal number: ");
+    scanf("%d", &num);
+    printf("Octal: %o\n", num);
+    printf("Hexadecimal: %X\n", num);
+    return 0;
+}
+```
+## 21.Write a program to accept any number and print the value of remainder after dividing it by 3.
+```c
+#include <stdio.h>
+int main() {
+    int num, remainder;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    remainder = num % 3;
+    printf("Remainder after dividing %d by 3 = %d\n", num, remainder);
+    return 0;
+}
+```
+## 22.Write a program that accepts marks in five subjects and calculates the total percentage marks.
+```c
+#include <stdio.h>
+int main() {
+    float marks[5];
+    float total = 0, percentage;
+    int i;
+    for(i = 0; i < 5; i++) {
+        printf("Enter marks for subject %d: ", i+1);
+        scanf("%f", &marks[i]);
+    }
+    for(i = 0; i < 5; i++) {
+        total += marks[i];
+    }
+    percentage = (total / 500) * 100;  // assuming each subject is out of 100
+    printf("Total Marks = %.2f\n", total);
+    printf("Percentage = %.2f%%\n", percentage);
+    return 0;
+}
+```
+## 23.Write a C program that uses the bitwise operators to check if a given positive integer is divisible by both 6 and 9.
+```c
+#include <stdio.h>
+int isDivisibleBy9(int n) {
+    int sum = 0, temp = n;
+    while(temp > 0) {
+        sum += temp % 10;
+        temp /= 10;
+    }
+    return (sum % 9 == 0); 
+}
+int main() {
+    int n;
+    printf("Enter a positive integer: ");
+    scanf("%d", &n);
+    if( (n & 1) == 0 && isDivisibleBy9(n) )
+        printf("%d is divisible by both 6 and 9\n", n);
+    else
+        printf("%d is NOT divisible by both 6 and 9\n", n);
+    return 0;
+}
+```
+## 24.Implement a program that checks if a number is less than 50 without using the less than operator.
+```c
+#include<stdio.h>
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int diff=50-n;
+    if((diff>>31)==0)
+    {
+         printf("It is a positive number");
+    }
+    else
+    {
+        printf("it is negative number");
+    }
+}
+```
+
+
+
+
+
+
 
 
 
