@@ -221,6 +221,39 @@ int main() {
     return 0;
 }
 ```
+## 16.MACRO to swap bytes in 16 bit integer variable
+```c
+#include <stdio.h>
+#include <stdint.h>
+
+#define SWAP16(x) ( ((x & 0x00FF) << 8) | ((x & 0xFF00) >> 8) )
+
+int main() {
+    uint16_t a = 0x1234;  // Example number
+    printf("Original: 0x%04X\n", a);
+    printf("Swapped : 0x%04X\n", SWAP16(a));
+    return 0;
+}
+```
+## 17.MACRO to swap bytes in 32 bit integer variable
+```c
+#include <stdio.h>
+#include <stdint.h>
+
+#define SWAP32(x) ( ((x & 0x000000FF) << 24) | \
+                    ((x & 0x0000FF00) << 8)  | \
+                    ((x & 0x00FF0000) >> 8)  | \
+                    ((x & 0xFF000000) >> 24) )
+
+int main() {
+    uint32_t b = 0x12345678;  // Example number
+    printf("Original: 0x%08X\n", b);
+    printf("Swapped : 0x%08X\n", SWAP32(b));
+    return 0;
+}
+```
+
+
 
 
 
