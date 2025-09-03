@@ -884,6 +884,131 @@ int main()
     
 }
 ```
+## 30.Write a program in C to replace the spaces in a string with a specific character.
+```c
+#include<stdio.h>
+int main()
+{
+    char c;
+    scanf("%c",&c);
+    if(c>='0'&& c<='9'|| c>='A' && c<='F' || c>='a' && c <='f')
+    {
+        printf("The character is a hexadecimal digit\n");
+    }
+    else
+    {
+        printf("The character is not a hexadecimal digit\n");
+    }
+    return 0;
+}
+```
+## 31.Write a program in C to check whether a letter is uppercase or not.
+```c
+#include <stdio.h>
+int main() {
+    char c;
+    scanf("%c", &c);
+
+    if (c >= 'A' && c <= 'Z')
+        printf("The letter is uppercase\n");
+    else
+        printf("The letter is not uppercase\n");
+
+    return 0;
+}
+```
+## 32.Write a program in C to replace the spaces in a string with a specific character.
+```c
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[100], ch;
+    fgets(str, sizeof(str), stdin);
+    scanf("%c", &ch);
+
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] == ' ')
+            str[i] = ch;
+    }
+    printf("Modified string: %s", str);
+    return 0;
+}
+```
+## 33.Write a program in C to count the number of punctuation characters present in a string.
+```c
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main() {
+    char str[200];
+    fgets(str, sizeof(str), stdin);
+
+    int count = 0;
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (ispunct(str[i]))
+            count++;
+    }
+
+    printf("Number of punctuation characters: %d\n", count);
+    return 0;
+}
+```
+## 34.Write a program in C to print only the string before the new line character.
+```c
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[100];
+    fgets(str, sizeof(str), stdin);
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] == '\n')
+            break;
+        printf("%c", str[i]);
+    }
+    return 0;
+}
+```
+## 35.Write a program in C to check whether a letter is lowercase or not.
+```c
+#include <stdio.h>
+int main() {
+    char c;
+    scanf("%c", &c);
+    if (c >= 'a' && c <= 'z')
+        printf("The letter is lowercase\n");
+    else
+        printf("The letter is not lowercase\n");
+
+    return 0;
+}
+```
+## 36.Count each character in a given string
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char str[100];
+    fgets(str,100,stdin);
+    int freq[256]={0};
+    str[strcspn(str,"\n")]='\0';
+    for(int i=0;str[i]!='\0';i++)
+    {
+        freq[str[i]]++;
+    }
+    for(int i=0;i<256;i++)
+    {
+        if(freq[i]>1&& i!='\0')
+        {
+            printf("%c:%d",i,freq[i]);
+        }
+    }
+    return 0;
+}
+```
+
+
 
 
 
