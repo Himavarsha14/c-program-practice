@@ -1007,6 +1007,39 @@ int main()
     return 0;
 }
 ```
+## 37.Program to find the length of the longest non repeating substring in the given string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char str[100];
+    fgets(str,100,stdin);
+    str[strcspn(str,"\n")]='\0';
+    int length=strlen(str);
+    int start=0,max_length=0;
+    int lastindex[256];
+    for(int i=0;i<256;i++)
+    {
+        lastindex[i]=-1;
+    }
+    for(int end=0;end<length-1;end++)
+    {
+        if(lastindex[str[end]]>=start)
+        {
+            start=lastindex[str[end]]+1;
+        }
+        lastindex[str[end]]=end;
+        int window_length=end-start+1;
+        if(window_length>max_length)
+        {
+            max_length=window_length;
+        }
+    }
+    printf("%d",max_length);
+    return 0;
+}
+```
 
 
 
