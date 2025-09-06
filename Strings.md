@@ -1307,8 +1307,30 @@ int main() {
     return 0;
 }
 ```
+## 49.Replace last occurance of a character
+```c
+#include <stdio.h>
+#include <string.h>
 
+int main() {
+    char str[200], old, newc;
+    printf("Enter a string: ");
+    gets(str);
+    printf("Enter character to replace: ");
+    scanf(" %c", &old);
+    printf("Enter new character: ");
+    scanf(" %c", &newc);
 
+    int last = -1;
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] == old)
+            last = i;
+    }
+    if (last != -1)
+        str[last] = newc;
 
-
-
+    printf("After replacement: %s\n", str);
+    return 0;
+}
+```
+## 50.
