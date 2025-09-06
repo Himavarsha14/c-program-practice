@@ -1040,8 +1040,273 @@ int main()
     return 0;
 }
 ```
+## 38.Write a C program to calculate the length of the longest common subsequence of two given strings.
+``` c
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char X[] = "AB";
+    char Y[] = "AC";
+    int m = strlen(X);
+    int n = strlen(Y);
+    int L[m+1][n+1];
+    for (int i = 0; i <= m; i++) {
+        for (int j = 0; j <= n; j++) {
+            if (i == 0 || j == 0)
+                L[i][j] = 0;
+            else if (X[i-1] == Y[j-1])
+                L[i][j] = L[i-1][j-1] + 1;
+            else
+                L[i][j] = (L[i-1][j] > L[i][j-1]) ? L[i-1][j] : L[i][j-1];
+            printf("Iteration (i=%d, j=%d): L[%d][%d] = %d\n", i, j, i, j, L[i][j]);
+            for (int p = 0; p <= m; p++) {
+                for (int q = 0; q <= n; q++) {
+                    printf("%d ", L[p][q]);
+                }
+                printf("\n");
+            }
+            printf("\n");
+        }
+    }
+    printf("Final Length of LCS = %d\n", L[m][n]);
+    return 0;
+}
+```
+## 39.Write a C program to check whether a string is palindrome or not.
+```c
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[100];
+    int i, j, flag = 1;
+    printf("Enter a string: ");
+    gets(str); 
+    int len = strlen(str);
+    for (i = 0, j = len - 1; i < j; i++, j--) {
+        if (str[i] != str[j]) {
+            flag = 0;  // not palindrome
+            break;
+        }
+    }
+    if (flag == 1)
+        printf("The string is a Palindrome.\n");
+    else
+        printf("The string is NOT a Palindrome.\n");
+    return 0;
+}
+```
+## 40.Write a C program to find the first occurrence of a character in a given string.
+```c
+#include <stdio.h>
+#include <string.h>
 
+int main() {
+    char str[100], ch;
+    printf("Enter a string: ");
+    gets(str);
+    printf("Enter a character to find: ");
+    scanf("%c", &ch);
 
+    int i, pos = -1;
+    for (i = 0; str[i] != '\0'; i++) {
+        if (str[i] == ch) {
+            pos = i;
+            break;
+        }
+    }
+
+    if (pos != -1)
+        printf("First occurrence of '%c' is at position %d\n", ch, pos);
+    else
+        printf("Character not found.\n");
+
+    return 0;
+}
+```
+## 41.Write a C program to find the last occurrence of a character in a given string.
+```c
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[100], ch;
+    printf("Enter a string: ");
+    gets(str);
+    printf("Enter a character to find: ");
+    scanf("%c", &ch);
+    int i, pos = -1;
+    for (i = 0; str[i] != '\0'; i++) {
+        if (str[i] == ch)
+            pos = i; 
+    }
+    if (pos != -1)
+        printf("Last occurrence of '%c' is at position %d\n", ch, pos);
+    else
+        printf("Character not found.\n");
+
+    return 0;
+}
+```
+## 42.Write a C program to search all occurrences of a character in a given string.
+```c
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[100], ch;
+    printf("Enter a string: ");
+    gets(str);
+    printf("Enter a character to find: ");
+    scanf("%c", &ch);
+    int i, found = 0;
+    printf("Occurrences of '%c': ", ch);
+    for (i = 0; str[i] != '\0'; i++) {
+        if (str[i] == ch) {
+            printf("%d ", i);
+            found = 1;
+        }
+    }
+    if (!found)
+        printf("Character not found.");
+    printf("\n");
+    return 0;
+}
+```
+## 43.Program to count frequency of each character in the given string
+```c
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[200];
+    int freq[256] = {0};
+    printf("Enter a string: ");
+    gets(str);
+    for (int i = 0; str[i] != '\0'; i++)
+        freq[(unsigned char)str[i]]++;
+    printf("Character frequencies:\n");
+    for (int i = 0; i < 256; i++) {
+        if (freq[i] > 0)
+            printf("%c : %d\n", i, freq[i]);
+    }
+    return 0;
+}
+```
+## 44.Program to Remove first occurrence of a character.
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[200], ch;
+    printf("Enter a string: ");
+    gets(str);
+    printf("Enter character to remove: ");
+    scanf("%c", &ch);
+
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] == ch) {
+            for (int j = i; str[j] != '\0'; j++)
+                str[j] = str[j+1];  // shift left
+            break;
+        }
+    }
+    printf("After removal: %s\n", str);
+    return 0;
+}
+```
+## 45.Program to Remove last occurence of a character
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[200], ch;
+    printf("Enter a string: ");
+    gets(str);
+    printf("Enter character to remove: ");
+    scanf("%c", &ch);
+
+    int last = -1;
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] == ch)
+            last = i;
+    }
+
+    if (last != -1) {
+        for (int j = last; str[j] != '\0'; j++)
+            str[j] = str[j+1];
+    }
+
+    printf("After removal: %s\n", str);
+    return 0;
+}
+```
+## 46.Program to remove all occurances of a character in a string
+```c
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[200], ch;
+    printf("Enter a string: ");
+    gets(str);
+    printf("Enter character to remove: ");
+    scanf("%c", &ch);
+    int k = 0;
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] != ch)
+            str[k++] = str[i];
+    }
+    str[k] = '\0';
+    printf("After removal: %s\n", str);
+    return 0;
+}
+```
+## 47.Program to remove all repeated characters in a string
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[200];
+    printf("Enter a string: ");
+    gets(str);
+
+    int freq[256] = {0}, k = 0;
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (!freq[(unsigned char)str[i]]) {
+            str[k++] = str[i];
+            freq[(unsigned char)str[i]] = 1;
+        }
+    }
+    str[k] = '\0';
+
+    printf("After removing duplicates: %s\n", str);
+    return 0;
+}
+```
+## 48.Replace first occurance of a character
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[200], old, newc;
+    printf("Enter a string: ");
+    gets(str);
+    printf("Enter character to replace: ");
+    scanf(" %c", &old);
+    printf("Enter new character: ");
+    scanf(" %c", &newc);
+
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] == old) {
+            str[i] = newc;
+            break;
+        }
+    }
+
+    printf("After replacement: %s\n", str);
+    return 0;
+}
+```
 
 
 
