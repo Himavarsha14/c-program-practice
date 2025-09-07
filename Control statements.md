@@ -1,4 +1,4 @@
-## 1.WRITE A C PROGRAM TO ACCEPT TWO INTEGERS AND CHECK WHETHER THEY ARE EQUAL OR NOT
+<img width="225" height="225" alt="image" src="https://github.com/user-attachments/assets/35e0a120-dd5c-4cdc-8677-ece816831a38" />## 1.WRITE A C PROGRAM TO ACCEPT TWO INTEGERS AND CHECK WHETHER THEY ARE EQUAL OR NOT
 ```c
 #include<stdio.h>
 int main()
@@ -336,6 +336,366 @@ int main() {
     return 0;
 }
 ```
+## 22.Program to Print a pattern of stars using nested loops
+```c
+#include <stdio.h>
+
+int main() {
+    int n, i, j;
+    printf("Enter number of rows: ");
+    scanf("%d", &n);
+
+    for (i = 1; i <= n; i++) {
+        for (j = 1; j <= i; j++) {
+            printf("* ");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+```
+## 23.WRITE A C PROGRAM TO SEARCH FOR AN ELEMENT IN AN ARRAY USING LINEAR SEARCH AND A FOR LOOP.
+```c
+#include <stdio.h>
+
+int main() {
+    int n, i, key, found = 0;
+    printf("Enter size of array: ");
+    scanf("%d", &n);
+    int arr[n];
+    printf("Enter %d elements:\n", n);
+    for (i = 0; i < n; i++)
+        scanf("%d", &arr[i]);
+    printf("Enter element to search: ");
+    scanf("%d", &key);
+    for (i = 0; i < n; i++) {
+        if (arr[i] == key) {
+            printf("Element found at position %d\n", i + 1);
+            found = 1;
+            break;
+        }
+    }
+    if (!found)
+        printf("Element not found.\n");
+    return 0;
+}
+```
+## 24.Program to check whether given number is Palindrome in decimal & binary.
+```c
+#include <stdio.h>
+int isPalindrome(int num) {
+    int rev = 0, temp = num;
+    while (temp > 0) {
+        rev = rev * 10 + temp % 10;
+        temp /= 10;
+    }
+    return (rev == num);
+}
+int isBinaryPalindrome(int num) {
+    int bin[32], i = 0, j;
+    while (num > 0) {
+        bin[i++] = num % 2;
+        num /= 2;
+    }
+    for (j = 0; j < i / 2; j++) {
+        if (bin[j] != bin[i - j - 1])
+            return 0;
+    }
+    return 1;
+}
+int main() {
+    int n;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    if (isPalindrome(n))
+        printf("%d is a decimal palindrome.\n", n);
+    else
+        printf("%d is not a decimal palindrome.\n", n);
+    if (isBinaryPalindrome(n))
+        printf("Its binary representation is also palindrome.\n");
+    else
+        printf("Its binary representation is not palindrome.\n");
+    return 0;
+}
+```
+## 25.WRITE A C PROGRAM TO FIND THE SUM OF FIRST N NATURAL NUMBERS WHICH ARE NOT DIVISIBLE BY 3 OR 5 USING LOOPS AND IF-ELSE STATEMENTS?
+```c
+#include <stdio.h>
+int main() {
+    int n, i, count = 0, sum = 0;
+    printf("Enter N: ");
+    scanf("%d", &n);
+    for (i = 1; count < n; i++) {
+        if (i % 3 != 0 && i % 5 != 0) {
+            sum += i;
+            count++;
+        }
+    }
+    printf("Sum = %d\n", sum);
+    return 0;
+}
+```
+## 26.WRITE A C PROGRAM TO FIND THE SUM OF ALL EVEN NUMBERS BETWEEN TWO GIVEN NUMBERS USING LOOPS AND IF-ELSE STATEMENTS?
+```c
+#include <stdio.h>
+int main() {
+    int a, b, i, sum = 0;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
+
+    for (i = a; i <= b; i++) {
+        if (i % 2 == 0)
+            sum += i;
+    }
+    printf("Sum of even numbers = %d\n", sum);
+    return 0;
+}
+```
+## 27.WRITE A C PROGRAM TO FIND THE SUM OF ALL ODD NUMBERS BETWEEN TWO GIVEN NUMBERS USING LOOPS AND IF-ELSE STATEMENTS?
+```c
+#include <stdio.h>
+int main() {
+    int a, b, i, sum = 0;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
+
+    for (i = a; i <= b; i++) {
+        if (i % 2 != 0)
+            sum += i;
+    }
+    printf("Sum of odd numbers = %d\n", sum);
+    return 0;
+}
+```
+## 28.WRITE A C PROGRAM TO CHECK WHETHER A GIVEN NUMBER IS A PERFECT SQUARE OR NOT USING LOOPS AND IF-ELSE STATEMENTS.
+```c
+#include <stdio.h>
+int main() {
+    int n, i, flag = 0;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    for (i = 1; i * i <= n; i++) {
+        if (i * i == n) {
+            flag = 1;
+            break;
+        }
+    }
+    if (flag)
+        printf("%d is a perfect square.\n", n);
+    else
+        printf("%d is not a perfect square.\n", n);
+    return 0;
+}
+```
+## 29.WRITE A C PROGRAM TO CALCULATE THE POWER OF A NUMBER USING LOOPS AND IF-ELSE STATEMENTS?
+```c
+#include <stdio.h>
+int main() {
+    int base, exp, i;
+    long long result = 1;
+    printf("Enter base and exponent: ");
+    scanf("%d %d", &base, &exp);
+    for (i = 1; i <= exp; i++) {
+        result *= base;
+    }
+    printf("%d^%d = %lld\n", base, exp, result);
+    return 0;
+}
+```
+## 30.WRITE A C PROGRAM TO FIND THE ASCII VALUE OF A CHARACTER USING LOOPS AND IF-ELSE STATEMENTS?
+```c
+#include <stdio.h>
+int main() {
+    char c;
+    printf("Enter a character: ");
+    scanf(" %c", &c);
+    printf("ASCII value of %c = %d\n", c, c);
+    return 0;
+}
+```
+## 31.WRITE A C PROGRAM TO FIND THE AREA OF A CIRCLE GIVEN ITS RADIUS USING LOOPS AND IF-ELSE STATEMENTS?
+```c
+#include <stdio.h>
+int main() {
+    float r, area;
+    printf("Enter radius: ");
+    scanf("%f", &r);
+    if (r > 0) {
+        area = 3.14159 * r * r;
+        printf("Area = %.2f\n", area);
+    } else {
+        printf("Invalid radius.\n");
+    }
+    return 0;
+}
+```
+## 32.WRITE A C PROGRAM TO FIND THE SUM OF ALL PRIME NUMBERS BETWEEN 1 AND 1000 USING LOOPS AND IF-ELSE STATEMENTS?
+```c
+#include <stdio.h>
+int main() {
+    int i, j, sum = 0, prime;
+    for (i = 2; i <= 1000; i++) {
+        prime = 1;
+        for (j = 2; j * j <= i; j++) {
+            if (i % j == 0) {
+                prime = 0;
+                break;
+            }
+        }
+        if (prime)
+            sum += i;
+    }
+    printf("Sum of primes between 1 and 1000 = %d\n", sum);
+    return 0;
+}
+```
+## 33.WRITE A C PROGRAM TO PRINT THE PATTERN OF STARS IN A HOLLOW SQUARE SHAPE USING LOOPS AND IF-ELSE STATEMENTS?
+```c
+#include <stdio.h>
+
+int main() {
+    int n, i, j;
+    printf("Enter the size of square: ");
+    scanf("%d", &n);
+    for (i = 1; i <= n; i++) {
+        for (j = 1; j <= n; j++) {
+            if (i == 1 || i == n || j == 1 || j == n)
+                printf("* ");
+            else
+                printf("  ");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+```
+## 34.Program to print right triangle of stars
+```c
+#include <stdio.h>
+int main() {
+    int n, i, j;
+    printf("Enter number of rows: ");
+    scanf("%d", &n);
+
+    for (i = 1; i <= n; i++) {
+        for (j = 1; j <= i; j++) {
+            printf("* ");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+```
+## 35.Program to print mirror right triangle of stars
+```c
+#include <stdio.h>
+int main() {
+    int n, i, j;
+    printf("Enter number of rows: ");
+    scanf("%d", &n);
+    for (i = 1; i <= n; i++) {
+        for (j = 1; j <= n; j++) {
+            if (j <= n - i)
+                printf("  ");
+            else
+                printf("* ");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+```
+## 36.Program to print diamond of stars
+```c
+#include <stdio.h>
+int main() {
+    int n, i, j, k;
+    printf("Enter number of rows: ");
+    scanf("%d", &n);
+    for (i = 1; i <= n; i++) {
+        for (j = 1; j <= n - i; j++) 
+        {
+            printf(" ");
+        }
+        for (k = 1; k <= (2*i - 1); k++)
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+```
+## 37.Program to print hollow diamond
+```c
+#include <stdio.h>
+int main() {
+    int n, i, j;
+    printf("Enter number of rows: ");
+    scanf("%d", &n);
+    for (i = 1; i <= n; i++) {
+        for (j = 1; j <= n - i; j++) printf(" ");
+        for (j = 1; j <= 2*i - 1; j++) {
+            if (j == 1 || j == 2*i - 1) printf("*");
+            else printf(" ");
+        }
+        printf("\n");
+    }
+    for (i = n - 1; i >= 1; i--) {
+        for (j = 1; j <= n - i; j++) printf(" ");
+        for (j = 1; j <= 2*i - 1; j++) {
+            if (j == 1 || j == 2*i - 1) printf("*");
+            else printf(" ");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+```
+## 38.Program to print number pyramid
+```c
+#include <stdio.h>
+int main() {
+    int n, i, j, k;
+    printf("Enter number of rows: ");
+    scanf("%d", &n);
+    for (i = 1; i <= n; i++) {
+        for (j = 1; j <= n - i; j++) printf(" ");
+        for (k = 1; k <= (2*i - 1); k++) printf("%d", i);
+        printf("\n");
+    }
+    return 0;
+}
+```
+## 39.Program to print mirrored number pyramid
+```c
+#include <stdio.h>
+int main() {
+    int n, i, j, k;
+    printf("Enter number of rows: ");
+    scanf("%d", &n);
+
+    for (i = n; i >= 1; i--) {
+        for (j = 1; j <= n - i; j++) printf(" ");
+        for (k = 1; k <= 2*i - 1; k++) printf("%d", i);
+        printf("\n");
+    }
+    return 0;
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
