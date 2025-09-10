@@ -5,6 +5,7 @@
 4. &&
 Ans:option 4:It is logical AND operator.
 ## 2.Predict the output of the following program.
+```c
 #include <stdio.h>
 int main()
 {
@@ -15,8 +16,10 @@ c=(a & b);
 printf("c= %d",c);
 return 0;
 }
+```
 Ans:c=2
 ## 3.Predict the output of the following program.
+```c
 #include <stdio.h>
 #define MOBILE 0x01
 #define LAPPY 0x02
@@ -51,7 +54,9 @@ printf("Lappy");
 }
 return 1;
 }
+```
 ## 4.Predict the output of the following program.
+```c
 #include <stdio.h>
 int main()
 {
@@ -62,8 +67,10 @@ var |= 0x01;
 printf("%d",var);
 return 0;
 }
+```
 Ans:4,5
 ## 5.Predict the output of the following program.
+```c
 #include <stdio.h>
 int main()
 {
@@ -72,6 +79,7 @@ flag &= ~0x02;
 printf("%d",flag);
 return 0;
 }
+```
 Ans:13
 ## 6.Toggle a given range of bitsFor example, take the number 245. The equivalent binary format is 11110101and the range is to 7. So, the output should be 000001010 which is 5 in decimal.
 ```c
