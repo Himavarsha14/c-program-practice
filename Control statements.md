@@ -683,6 +683,35 @@ int main() {
     return 0;
 }
 ```
+## 40.Program to check whether the given number is neon number or not
+```c
+#include<stdio.h>
+int main()
+{
+    int n;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    int sum = 0;
+    int sq = n * n;
+    int temp = sq;
+    while(temp != 0)
+    {
+        int rem = temp % 10;
+        sum += rem;
+        temp /= 10;
+    }
+    printf("Square of %d = %d\n", n, sq);
+    printf("Sum of digits of square = %d\n", sum);
+    if(sum == n)
+        printf("%d is a Neon number\n", n);
+    else
+        printf("%d is not a Neon number\n", n);
+
+    return 0;
+}
+```
+
+
 
 
 
