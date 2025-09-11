@@ -193,4 +193,70 @@ int main() {
     return 0;
 }
 ```
-## 10.
+## 10.Read student data from file into array of structures
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Student {
+    char name[50];
+    int roll;
+    float marks;
+};
+
+int main() {
+    FILE *fp = fopen("students.txt", "r");
+    if (!fp) {
+        printf("Error opening file!\n");
+        return 1;
+    }
+
+    struct Student students[100];
+    int count = 0;
+
+    while (fscanf(fp, "%s %d %f", students[count].name, 
+                  &students[count].roll, 
+                  &students[count].marks) == 3) {
+        count++;
+    }
+    fclose(fp);
+
+    printf("Student Data:\n");
+    for (int i = 0; i < count; i++) {
+        printf("%s %d %.2f\n", students[i].name, students[i].roll, students[i].marks);
+    }
+    return 0;
+}
+```
+## 11.Check if date is valid
+```c
+#include <stdio.h>
+
+struct Date {
+    int day, month, year;
+};
+
+int isLeapYear(int year) {
+    return (year % 400 == 0) || (year % 100 != 0 && year % 4 == 0);
+}
+
+int isValidDate(struct Date d) {
+    if (d.year < 1 || d.month < 1 || d.month > 12 || d.day < 1)
+        return 0;
+
+    int daysInMonth[] = {0,31,28,31,30,31,30,31,31,30,31,30,31};
+
+    if (isLeapYear(d.year)) daysInMonth[2] = 29;
+
+    return d.day <= daysInMonth[d.month];
+}
+
+int main() {
+    struct Date d = {29, 2, 2024};
+    if (isValidDate(d))
+        printf("Valid date\n");
+    else
+        printf("Invalid date\n");
+    return 0;
+}
+```
